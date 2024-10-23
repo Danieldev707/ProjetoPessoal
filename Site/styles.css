@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@600&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Montserrat';
+    background-color: #f0f0f0;
+    padding-top: 80px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  color: white;
+  z-index: 1000;
+  transition: top 0.3s ease; 
+  text-align: center;
+}
+
+body.scrolled header {
+  top: -100px;/
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
+body{
+    background:#000;
+  }
+  
+  .container{
+    background-image: url(djavanFundo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin:auto;
+    outline:1px solid #111;
+    overflow: hidden;
+    transition: all ease-in-out 1s;
+    height: 580px;
+    margin-top: 0;
+  }
+  
+  .nomebox{
+    display: flex;
+    color: #ccc;
+    text-transform:lowercase;
+    text-align: center;
+    width: 400px;
+    height: 550px;
+    margin: auto;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .titulo1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 250px;
+    position: relative;
+    left:-60px;
+    transition: all ease-in-out 0.9s;
+    transition-delay: 0.8s;
+  }
+  
+  .titulo2{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 250px;
+    position: relative;
+    right: -30px;
+    transition: all ease-in-out 0.8s;
+    transition-delay: 0.8s;
+  }
+  
+  .container:hover .titulo1{
+    left: -450px;
+    transition: all ease-in-out 0.8s;
+  }
+  
+  .container:hover .titulo2{
+    right: -450px;
+    transition: all ease-in-out 0.8s;
+  }
+  
+  .container:hover{
+    background-image: url(djavanFundo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all ease-in-out 1s;
+  }
+  
+  .box-principal{
+    width: 800px;
+    height: 550px;
+    position: relative;
+    top: -550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing:1px;
+  }
+  
+  
+  
+  
+  .musicbox {
+    width: 40%; 
+    max-width: 1200px;  
+    height: auto; 
+    background: rgba(0,0,0,0.6);
+    margin: 0 auto; 
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    bottom: 550px;
+    transition: all ease-in-out 0.8s;
+    margin-left: 690px;
+}
+
+.container:hover .musicbox {
+    bottom: 0px;
+    transition: all ease-in-out 0.8s;
+    transition-delay: 0.8s;
+}
+  
+  
+  .musica{
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background:rgba(0,0,0,0.4);
+    padding:4px;
+    line-height: 10px;
+  }
+  
+  .container:hover .datosmox{
+    top: 0px;
+    transition: all ease-in-out 0.8s;
+    transition-delay: 0.8s;
+  }
+  
+  .musica i{
+    font-size: 20px;
+    color: #ccc;
+    padding:10px;
+  }
+  
+  .musica a:hover{
+    color: #ccc;
+    transition: all ease-in-out 0.3s;
+  }
+  
+  .musica a{
+    width: 70px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #FBFEF9;
+    border:0;
+    text-decoration: none;
+    transition: all ease-in-out 0.3s;
+  }
+  
+  .musica m{
+    font-size: 11px;
+    color: #999;
+    margin-left: 5px;
+    display: flex;
+  }
+  
+  .musica m:before{
+    content: '/';
+    font-weight: 700;
+    color: #FBFEF9;
+    margin-right: 10px;
+  }
+  
+  
+  .subtitulo{
+    font-family: 'Arima';
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #ccc;
+    position: relative;
+    top: -600px;
+    text-align: center;
+    line-height: 10px;
+    transition: all ease-in-out 0.8s;
+    transition-delay: 1s;
+  }
+  
+  .container:hover .subtitulo{
+    filter:blur(10px);
+    opacity:0;
+    transition: all ease-in-out 0.8s;
+  }
+
