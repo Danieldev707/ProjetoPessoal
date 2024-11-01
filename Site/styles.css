@@ -78,7 +78,7 @@ body{
   }
   
   .container{
-    background-image: url(djavanFundo.jpg);
+    background-image: url(Imagens/djavanFundo.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -135,7 +135,7 @@ body{
   }
   
   .container:hover{
-    background-image: url(djavanFundo.jpg);
+    background-image: url(Imagens/djavanFundo.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -274,8 +274,10 @@ body{
   justify-content: center;
 }
 
-.frase h1 {
+title{
+  color: #50080b;
 }
+
 
 
 .ods {
@@ -341,13 +343,13 @@ body{
 }
 
 #box-ods1 {
-  background-color: #dd1367;
+  background-color: #50080b;
 }
 
 #box-ods2 {
-  background-color: #fd9d23;
+  background-color: #50080b;
 }
 
 #box-ods3 {
-  background-color: #02689d;
+  background-color: #50080b;
 }
