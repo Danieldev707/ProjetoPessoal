@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Djavan</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://kit-pro.fontawesome.com/releases/v5.13.0/css/pro.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
-        <h1>Djavan</h1>
-    </header>
+      <div class="logo">
+        <h1> DJAVAN </h1>
+      </div>
+        <nav>
+        <a href=""> HOME</a>
+        <a href=""> SOBRE MIM </a>
+        <a href=""> ODS </a>
+
+        <a href=""> LOGIN </a>
+        <a href=""> CADASTRE-SE </a>
+      </nav>
+    </header> 
 
     <div class="container">
       <div class="nomebox">
@@ -19,22 +28,22 @@
       </div>
       <div class="box-principal">
         <div class="musicbox">
-          <div class="musica"><i class="far fa-waveform"></i><a href="https://open.spotify.com/intl-pt/track/3iof6EclqePezHDibBiykI?si=37df4be5bfbc4212">Oceano</a>
+          <div class="musica"><i ><img onclick="iniciarMusica()" src="botao-play-ponta-de-seta.png" class="imagem" id="imagemOceano" /> <audio id="audioOceano" src="musicas/Djavan – Oceano (Clipe Oficial) [HD].mp3"></audio> </i><a>Oceano</a>
             <m>#1</m>
           </div>
-          <div class="musica"><i class="far fa-waveform"></i><a href="https://open.spotify.com/intl-pt/track/3PlKQNlbL4767rND3HnqSI?si=1e10e539826441e5">Um Amor Puro</a>
-            <m>#2</m>
+          <div class="musica"><i ><img onclick="iniciarMusica()" src="botao-play-ponta-de-seta.png" class="imagem" id="imagemAmorPuro" /> <audio id="audioAmorPuro" src="musicas/Djavan - Um Amor Puro (Áudio Oficial).mp3"></audio></i><a>Um Amor Puro</a>
+            <m>#2</m> 
           </div>
-          <div class="musica"><i class="far fa-waveform"></i><a href="https://open.spotify.com/intl-pt/track/3BQAK2pnTpfZvLg2MUUU5i?si=18eed1ee74c843ee">Samurai</a>
+          <div class="musica"><i ><img onclick="iniciarMusica()" src="botao-play-ponta-de-seta.png" class="imagem" id="imagemSamurai"/> <audio id="audioSamurai" src="musicas/Djavan - Samurai (Áudio Oficial) ft. Stevie Wonder.mp3"></audio> </i><a>Samurai</a>
             <m>#3</m>
           </div>
-          <div class="musica"><i class="far fa-waveform"></i><a href="https://open.spotify.com/intl-pt/track/2Px3PZ2qq2uFpRBpfVx8A5?si=f6b4851f78d84fb0">Eu Te Devoro</a>
+          <div class="musica"><i ><img onclick="iniciarMusica()" src="botao-play-ponta-de-seta.png" class="imagem" id="imagemEuteDevoro" /></i> <audio id="audioEuTeDevoro" src="musicas/Djavan - Eu Te Devoro (Áudio Oficial).mp3"></audio> <a> Eu te devoro </a>
             <m>#4</m>
           </div>
-          <div class="musica"><i class="far fa-waveform"></i><a href="https://open.spotify.com/intl-pt/track/1TX4h6MrIZ0K3r4OOG11WO?si=9967919d7b7c4949">Flor de Lis</a>
+          <div class="musica"><i ><img onclick="iniciarMusica()" src="botao-play-ponta-de-seta.png" class="imagem" id="imagemFlorDeLis" /></i> <audio id="audioFlorDeLis" src="musicas/Djavan - Flor de Lis (Ao Vivo) (Áudio Oficial).mp3"></audio><a>Flor de Lis</a>
             <m>#5</m>
           </div>
-          <div class="musica"><i class="far fa-waveform"></i><a href="https://open.spotify.com/intl-pt/track/1esL5ay4x4AzAjtWEhVR78?si=d0ac559143d04004">Meu Bem-Querer</a>
+          <div class="musica"><i ><img onclick="iniciarMusica()" src="botao-play-ponta-de-seta.png" class="imagem" id="imagemMeuBemQuerer" /></i> <audio id="audioMeuBemQuerer" src="musicas/Meu bem querer.mp3"></audio><a>Meu Bem-Querer</a>
             <m>#6</m>
           </div>
         </div>
@@ -42,8 +51,125 @@
       <div class="subtitulo">lorem ipsumumumumuumummmuuum. <br>lorem ipsumumumumuumummmuuum</div>
     </div>
 
+    <section class="pictures">
+      <h2> Fotos </h2>
+      <img src="">
+    </section>
+
+    <section class="frase">
+      <h1> "NEM SE EU BEBESSE TODO O MAR, ENCHERIA O QUE EU TENHO DE FUNDO. </h1>
+    </section>
+
+    <section id="ods" class="ods">
+      <div class="container-ods">
+          <div class="headline-ods">
+              <div class="text-headline-ods">
+                  <h2>Objetivos de Desenvolvimento Sustentável</h2>
+              </div>
+          </div>
+          <div class="conteudo-ods">
+              <div class="box-ods" id="box-ods1">
+                  <img src="desigualdes-removebg-preview.png" alt="ODS-3">
+                  <h3>ODS 10 - Redução das Desigualdades</h3>
+                  <p>Djavan, com sua trajetória e influência, representa o fortalecimento de vozes diversas. Explorar sua música e origem pode ser uma forma de ressaltar a importância da diversidade e da inclusão cultural, promovendo a redução de desigualdades.</p>
+              </div>
+              <div class="box-ods" id="box-ods2">
+                  <img src="cidades-removebg-preview.png" alt="ODS-5">
+                  <h3>ODS 11 - Cidades e Comunidades Sustentáveis</h3>
+                  <p>A música também pode ser uma forma de promover culturas locais e incentivar a valorização de comunidades sustentáveis. Djavan, sendo um artista brasileiro, carrega muito da cultura nacional em sua obra, o que se conecta com a valorização das raízes culturais.</p>
+              </div>
+              <div class="box-ods" id="box-ods3">
+                  <img src="paz-removebg-preview.png" alt="ODS-10">
+                  <h3>ODS 16 - Paz, Justiça e Instituições Eficazes</h3>
+                  <p>Algumas das letras de Djavan podem inspirar reflexões sobre justiça e paz. A música, nesse contexto, torna-se uma ferramenta de expressão que pode incentivar o diálogo e a resolução pacífica de conflitos.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+
 </body>
 
 
 </html>
 
+
+<script>
+
+  function iniciarMusica(){
+    if(imagemOceano){
+      audioOceano.play()
+      imagemOceano.src = `pausa.png` 
+      imagemOceano.onclick = pausarMusica
+    }
+
+    if(imagemAmorPuro){
+      audioAmorPuro.play()
+      imagemAmorPuro.src = `pausa.png` 
+      imagemAmorPuro.onclick = pausarMusica
+    }
+
+    if(imagemSamurai){
+      audioSamurai.play()
+      imagemSamurai.src = `pausa.png` 
+      imagemSamurai.onclick = pausarMusica
+    }
+
+    if(imagemEuTeDevoro){
+      audioEuTeDevoro.play()
+      imagemEuTeDevoro.src = `pausa.png` 
+      imagemEuTeDevoro.onclick = pausarMusica
+    }
+
+    if(imagemFlorDeLis){
+      audioFlorDeLis.play()
+      imagemFlorDeLis.src = `pausa.png` 
+      imagemFlorDeLis.onclick = pausarMusica
+    }
+
+    if(imagemMeuBemQuerer){
+      audioMeuBemQuerer.play()
+      imagemMeuBemQuerer.src = `pausa.png` 
+      imagemMeuBemQuerer.onclick = pausarMusica
+    }
+  }
+
+  function pausarMusica(){
+    if(imagemOceano){
+      audioOceano.pause()
+      imagemOceano.src = `botao-play-ponta-de-seta.png`
+      imagemOceano.onclick = iniciarMusica
+    } 
+    if(imagemAmorPuro){
+      audioAmorPuro.pause()
+      imagemAmorPuro.src = `botao-play-ponta-de-seta.png`
+      imagemAmorPuro.onclick = iniciarMusica
+    } 
+    if(imagemSamurai){
+      audioSamurai.pause()
+      imagemSamurai.src = `botao-play-ponta-de-seta.png`
+      imagemSamurai.onclick = iniciarMusica
+    } 
+    if(imagemEuTeDevoro){
+      audioEuTeDevoro.pause()
+      imagemEuTeDevoro.src = `botao-play-ponta-de-seta.png`
+      imagemEuTeDevoro.onclick = iniciarMusica
+
+    } 
+    if(imagemFlorDeLis){
+      audioFlorDeLis.pause()
+      imagemFlorDeLis.src = `botao-play-ponta-de-seta.png`
+      imagemFlorDeLis.onclick = iniciarMusica
+
+    } 
+    if(imagemMeuBemQuerer){
+      audioMeuBemQuerer.pause()
+      imagemMeuBemQuerer.src = `botao-play-ponta-de-seta.png`
+      imagemMeuBemQuerer.onclick = iniciarMusica
+
+    }
+  }
+
+  
+
+</script>

@@ -12,7 +12,7 @@
 body {
     font-family: 'Montserrat';
     background-color: #f0f0f0;
-    padding-top: 80px;
+
 }
 
 header {
@@ -20,20 +20,53 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  color: white;
+  padding: 20px 50px;
   z-index: 1000;
-  transition: top 0.3s ease; 
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
+
+.logo {
+  font-size: 18px; 
+  color: #ccc;
+  padding-left: 220px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 80px;
+  padding-right: 290px;
+  margin-bottom: 5px;
+}
+
+nav a {
+  color: #ccc;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: black;
+}
+
+header h1 {
+  font-size: 27px;
+}
+
 
 body.scrolled header {
   top: -100px;/
 }
 
 a {
-    color: white;
+    color: #ccc;
     text-decoration: none;
     margin-top: 10px;
     display: inline-block;
@@ -53,8 +86,10 @@ body{
     outline:1px solid #111;
     overflow: hidden;
     transition: all ease-in-out 1s;
-    height: 580px;
+    height: 850px;
+    width: 100%;
     margin-top: 0;
+    background-attachment: fixed;
   }
   
   .nomebox{
@@ -62,6 +97,7 @@ body{
     color: #ccc;
     text-transform:lowercase;
     text-align: center;
+    top: 85px;
     width: 400px;
     height: 550px;
     margin: auto;
@@ -104,13 +140,14 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     transition: all ease-in-out 1s;
+    background-attachment: fixed;
   }
   
   .box-principal{
     width: 800px;
     height: 550px;
     position: relative;
-    top: -550px;
+    top: -450px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,9 +171,10 @@ body{
     align-items: center;
     flex-wrap: wrap;
     position: relative;
-    bottom: 550px;
+    bottom: 1200px;
     transition: all ease-in-out 0.8s;
     margin-left: 690px;
+    color: white;
 }
 
 .container:hover .musicbox {
@@ -169,7 +207,7 @@ body{
   }
   
   .musica a:hover{
-    color: #ccc;
+    color: white;
     transition: all ease-in-out 0.3s;
   }
   
@@ -177,7 +215,7 @@ body{
     width: 70px;
     font-size: 11px;
     font-weight: 700;
-    color: #FBFEF9;
+    color:  #ccc;
     border:0;
     text-decoration: none;
     transition: all ease-in-out 0.3s;
@@ -205,11 +243,12 @@ body{
     letter-spacing: 6px;
     color: #ccc;
     position: relative;
-    top: -600px;
+    top: -750px;
     text-align: center;
     line-height: 10px;
     transition: all ease-in-out 0.8s;
     transition-delay: 1s;
+    top: 45px;
   }
   
   .container:hover .subtitulo{
@@ -218,3 +257,97 @@ body{
     transition: all ease-in-out 0.8s;
   }
 
+.pictures{
+  color: white;
+  height: 512px;
+  width: 1015px;
+}
+
+.frase {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ccc;
+  background-color: #50080b;
+  height: 180px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.frase h1 {
+}
+
+
+.ods {
+  margin-top: 55px;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.container-ods {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.headline-ods h2 {
+  font-size: 2.5rem;
+  color: #ccc;
+  margin-bottom: 3rem;
+}
+
+
+.conteudo-ods {
+  display: flex;
+  gap: 7.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box-ods {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 300px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.box-ods:hover {
+  transform: scale(1.05);
+}
+
+.box-ods img {
+  width: 80px;
+  height: 80px;
+}
+
+.box-ods h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin: 0.5rem;
+}
+
+.box-ods p {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#box-ods1 {
+  background-color: #dd1367;
+}
+
+#box-ods2 {
+  background-color: #fd9d23;
+}
+
+#box-ods3 {
+  background-color: #02689d;
+}
