@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Djavan</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.js">
     <link rel="icon" class="icon" href="Imagens/Product Sales Line Chart Graph (3).png">
 </head>
 <body>
@@ -53,8 +54,47 @@
     </div>
 
     <section class="pictures">
-      <h2> Fotos </h2>
-      <img src="">
+      <div class="slider">
+
+          <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <div class="slide first">
+                    <img src="Imagens/bastiao1.jpeg" alt="imagem1">
+                </div>
+
+                <div class="slide">
+                  <img src="Imagens/bastiao2.jpeg" alt="imagem2">
+              </div>
+
+              <div class="slide">
+                <img src="Imagens/bastiao3.jpeg" alt="imagem3">
+            </div>
+
+            <div class="slide">
+              <img src="Imagens/bastiao4.jpeg" alt="imagem4">
+          </div>
+
+            <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn1"></div>
+            </div>
+
+          </div>
+
+          <div class="manual-navigation">
+              <label for="radio1" class="manual-btn"></label>
+              <label for="radio2" class="manual-btn"></label>
+              <label for="radio3" class="manual-btn"></label>
+              <label for="radio4" class="manual-btn"></label>
+          </div>
+
+      </div>
     </section>
 
     <section class="frase">
@@ -87,7 +127,163 @@
           </div>
       </div>
   </section>
+
+
+  <section class="discografia">
+    <span class="arrow arrow-left" onclick="slide(-1)">&#10094</span>
+    <div class="cards-container">
+      <div class="card-content">
+
+        <h1> DISCOGRAFIA</h1>
+        
+        <article class="card-article" style="background-image: url('Imagens/album-Djavan-1976.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Djavan (1976)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-alumbramento-1980.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Alumbramento (1980)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-seduzir-1981.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Seduzir (1981)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-luz-1982.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Luz (1982)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-lilas-1984.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Lilás (1984)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-meuLado-1986.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Meu Lado (1986)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-naoeAzul-1987.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Não Azul Mas é Mar (1987)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-Oceano-1989.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Oceano (1989)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-coisaAcender-1992.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Coisa de Acender (1992)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-novena-1994.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Novena (1994)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-malasia-1996.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Malásia (1996)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-bichoSolto-1886.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Bicho Solto (1998)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-milagreiro-2001.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Milagreiro (2001)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-vaidade-2004.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Vaidade (2004)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-matizes-2007.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Matizes (2007)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-Ária-2010.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Ária (2010)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-ruaAmores-2012.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Rua Dos Amores (2012)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-VidasContar-2015.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Vidas Pra Contar (2015)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-vesuvio-2016.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">Vesúvio (2016)</h3>
+          </div>
+        </article>
+
+        <article class="card-article" style="background-image: url('Imagens/album-D-2022.jpg')">
+          <div class="card-data">
+            <h3 class="card-name">D (2022)</h3>
+          </div>
+        </article>
+
+      </div>
+    </div>
+    <span class="arrow arrow-right" onclick="slide(1)">&#10095</span>
+</section>
+
+<footer>
+  <div class="footer">
+  <div class="row">
+  <a href="#"><i class="fa fa-facebook"></i></a>
+  <a href="#"><i class="fa fa-instagram"></i></a>
+  <a href="#"><i class="fa fa-youtube"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  </div>
   
+  <div class="row">
+  <ul>
+  <li><a href="#">Contact us</a></li>
+  <li><a href="#">Our Services</a></li>
+  <li><a href="#">Privacy Policy</a></li>
+  <li><a href="#">Terms & Conditions</a></li>
+  </ul>
+  </div>
+  
+  <div class="row">
+  São Paulo Tech School Copyright © 2024 Daniel - Todos direitos reservados || Designed By: Daniel Sena Santos 
+  </div>
+  </div>
+  </footer>
 
 </body>
 
@@ -96,83 +292,92 @@
 
 
 <script>
-
   function iniciarOceano(){
-      audioOceano.play()
-      imagemOceano.src = `Imagens/pausa.png` 
-      imagemOceano.onclick = pausarOceano
-    }
-
-  function iniciarAmorPuro(){
-      audioAmorPuro.play()
-      imagemAmorPuro.src = `Imagens/pausa.png` 
-      imagemAmorPuro.onclick = pausarAmorPuro
-    }
-
-    function iniciarSamurai(){
-      audioSamurai.play()
-      imagemSamurai.src = `Imagens/pausa.png` 
-      imagemSamurai.onclick = pausarSamurai
-    }
-
-    function iniciarEuTeDevoro(){
-      audioEuTeDevoro.play()
-      imgEuTeDevoro.src = `Imagens/pausa.png` 
-      imgEuTeDevoro.onclick = pausarEuTeDevoro
-    }
-
-    function iniciarFlorDeLis(){
-      audioFlorDeLis.play()
-      imagemFlorDeLis.src = `Imagens/pausa.png` 
-      imagemFlorDeLis.onclick = pausarFlorDeLis
-    }
-
-    function iniciarMeuBemQuerer(){
-      audioMeuBemQuerer.play()
-      imagemMeuBemQuerer.src = `Imagens/pausa.png` 
-      imagemMeuBemQuerer.onclick = pausarMeuBemQuerer
-    }
-  
-
-  function pausarOceano(){
-    
-      audioOceano.pause()
-      imagemOceano.src = `Imagens/botao-play-ponta-de-seta.png`
-      imagemOceano.onclick = iniciarOceano
+    audioOceano.play()
+    imagemOceano.src = `Imagens/pausa.png` 
+    imagemOceano.onclick = pausarOceano
   }
-    
-    function pausarAmorPuro(){
-      audioAmorPuro.pause()
-      imagemAmorPuro.src = `Imagens/botao-play-ponta-de-seta.png`
-      imagemAmorPuro.onclick = iniciarAmorPuro
-    } 
 
-    function pausarSamurai(){
-      audioSamurai.pause()
-      imagemSamurai.src = `Imagens/botao-play-ponta-de-seta.png`
-      imagemSamurai.onclick = iniciarSamurai
-    } 
-    function pausarEuTeDevoro(){
-      audioEuTeDevoro.pause()
-      imgEuTeDevoro.src = `Imagens/botao-play-ponta-de-seta.png`
-      imgEuTeDevoro.onclick = iniciarEuTeDevoro
+function iniciarAmorPuro(){
+    audioAmorPuro.play()
+    imagemAmorPuro.src = `Imagens/pausa.png` 
+    imagemAmorPuro.onclick = pausarAmorPuro
+  }
 
-    } 
-    function pausarFlorDeLis(){
-      audioFlorDeLis.pause()
-      imagemFlorDeLis.src = `Imagens/botao-play-ponta-de-seta.png`
-      imagemFlorDeLis.onclick = iniciarFlorDeLis
+  function iniciarSamurai(){
+    audioSamurai.play()
+    imagemSamurai.src = `Imagens/pausa.png` 
+    imagemSamurai.onclick = pausarSamurai
+  }
 
-    } 
-    function pausarMeuBemQuerer(){
-      audioMeuBemQuerer.pause()
-      imagemMeuBemQuerer.src = `Imagens/botao-play-ponta-de-seta.png`
-      imagemMeuBemQuerer.onclick = iniciarMeuBemQuerer
+  function iniciarEuTeDevoro(){
+    audioEuTeDevoro.play()
+    imgEuTeDevoro.src = `Imagens/pausa.png` 
+    imgEuTeDevoro.onclick = pausarEuTeDevoro
+  }
 
-    }
+  function iniciarFlorDeLis(){
+    audioFlorDeLis.play()
+    imagemFlorDeLis.src = `Imagens/pausa.png` 
+    imagemFlorDeLis.onclick = pausarFlorDeLis
+  }
+
+  function iniciarMeuBemQuerer(){
+    audioMeuBemQuerer.play()
+    imagemMeuBemQuerer.src = `Imagens/pausa.png` 
+    imagemMeuBemQuerer.onclick = pausarMeuBemQuerer
+  }
+
+
+function pausarOceano(){
+  
+    audioOceano.pause()
+    imagemOceano.src = `Imagens/botao-play-ponta-de-seta.png`
+    imagemOceano.onclick = iniciarOceano
+}
+  
+  function pausarAmorPuro(){
+    audioAmorPuro.pause()
+    imagemAmorPuro.src = `Imagens/botao-play-ponta-de-seta.png`
+    imagemAmorPuro.onclick = iniciarAmorPuro
+  } 
+
+  function pausarSamurai(){
+    audioSamurai.pause()
+    imagemSamurai.src = `Imagens/botao-play-ponta-de-seta.png`
+    imagemSamurai.onclick = iniciarSamurai
+  } 
+  function pausarEuTeDevoro(){
+    audioEuTeDevoro.pause()
+    imgEuTeDevoro.src = `Imagens/botao-play-ponta-de-seta.png`
+    imgEuTeDevoro.onclick = iniciarEuTeDevoro
+
+  } 
+  function pausarFlorDeLis(){
+    audioFlorDeLis.pause()
+    imagemFlorDeLis.src = `Imagens/botao-play-ponta-de-seta.png`
+    imagemFlorDeLis.onclick = iniciarFlorDeLis
+
+  } 
+  function pausarMeuBemQuerer(){
+    audioMeuBemQuerer.pause()
+    imagemMeuBemQuerer.src = `Imagens/botao-play-ponta-de-seta.png`
+    imagemMeuBemQuerer.onclick = iniciarMeuBemQuerer
+
+  }
 
   
 
-  
+  let posicaoAtual = 0
 
+function slide(direcao) {
+const cards = document.querySelector('.card-content')
+const card = cards.children[0].offsetWidth + 32
+posicaoAtual += direcao
+
+if (posicaoAtual < 0) posicaoAtual = 0
+else if (posicaoAtual >= cards.children.length) posicaoAtual = cards.children.length - 1
+
+cards.style.transform = `translateX(-${posicaoAtual * card}px)`
+}
 </script>
