@@ -435,6 +435,26 @@ title{
   margin-top: 25px;
 }
 
+.discografia .op80{
+  opacity: 0.9;
+}
+
+.discografia .op60{
+  opacity: 0.7;
+}
+
+.discografia .op40{
+  opacity: 0.5;
+}
+
+.discografia .op20{
+  opacity: 0.3;
+}
+
+.discografia .op00{
+  opacity: 0.1;
+}
+
 .cards-container {
   display: flex;
   padding-block: 5rem;
@@ -546,3 +566,67 @@ title{
   }
 
 
+  .cont1 {
+    width: 23.8%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    left: 0;
+    margin-top: 0;
+  }
+
+  .cont2 {
+    width: 23.8%;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    right: 0;
+    margin-top: 0;
+  }
+  
+  /* Esconder o checkbox */
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  /* Estilo do botão expansor */
+  label {
+    display: block;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  /* Área do conteúdo expansível */
+  .content1 {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: #f0f0f0;
+    padding: 0 10px;
+    border-radius: 5px;
+  }
+  
+  /* Expande o conteúdo quando o checkbox está marcado */
+  input[type="checkbox"]:checked ~ .content1 {
+    max-height: 400px; /* Defina o máximo que o texto pode expandir */
+    padding: 10px;
+  }
+
+  .content2 {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: #f0f0f0;
+    padding: 0 10px;
+    border-radius: 5px;
+  }
+  
+  /* Expande o conteúdo quando o checkbox está marcado */
+  input[type="checkbox"]:checked ~ .content2 {
+    max-height: 400px; /* Defina o máximo que o texto pode expandir */
+    padding: 10px;
+  }
