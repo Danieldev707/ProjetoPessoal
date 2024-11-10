@@ -15,6 +15,7 @@ body {
 
 }
 
+
 header {
   position: fixed;
   top: 0;
@@ -29,6 +30,7 @@ header {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
+
 
 .logo {
   font-size: 18px; 
@@ -498,9 +500,9 @@ title{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
+  font-size: 5rem;
   cursor: pointer;
-  color: #000;
+  color: #fff;
 }
 
 .arrow-left {
@@ -593,7 +595,7 @@ title{
   label {
     display: block;
     cursor: pointer;
-    background-color: #3498db;
+    background-color: #50080b;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -605,9 +607,10 @@ title{
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease;
-    background-color: #f0f0f0;
+    background-color: #50080b;
     padding: 0 10px;
     border-radius: 5px;
+    color: #fff;
   }
   
   /* Expande o conteúdo quando o checkbox está marcado */
@@ -620,9 +623,10 @@ title{
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease;
-    background-color: #f0f0f0;
+    background-color: #50080b;
     padding: 0 10px;
     border-radius: 5px;
+    color: #fff;
   }
   
   /* Expande o conteúdo quando o checkbox está marcado */

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <header>
+  <header class="scrolled">
     <div class="logo">
       <h1> DJAVAN </h1>
     </div>
@@ -76,7 +76,9 @@
         <div class="content1">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             Repudiandae quaerat dignissimos quos ullam, eius totam veniam eum quod officia aperiam laborum doloremque atque. A, deleniti. Earum veniam odit et quo?. Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-            Saepe illum beatae, atque, nostrum labore quae et maiores ratione voluptas commodi facere veniam, dignissimos ipsum deleniti asperiores iusto dolore eius expedita.</p>
+            Saepe illum beatae, atque, nostrum labore quae et maiores ratione voluptas commodi facere veniam, dignissimos ipsum deleniti asperiores iusto dolore eius expedita.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci nulla deleniti eum repudiandae accusantium tenetur esse expedita excepturi, eveniet sint cum laudantium non officia vel nam harum numquam, aspernatur assumenda?
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, sunt ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eius deserunt distinctio maxime enim vitae iste dolor</p>
         </div>
       </div>
 
@@ -87,7 +89,9 @@
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis fuga natus facere. Non ea laboriosam debitis eos obcaecati eligendi ipsum minima? 
             Neque iure labore excepturi earum aliquid modi perspiciatis error?
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-          Cupiditate rerum libero voluptates quaerat a laboriosam in molestiae ducimus, velit maiores laudantium quas excepturi impedit quod minima vero ipsam nam vel.</p>
+          Cupiditate rerum libero voluptates quaerat a laboriosam in molestiae ducimus, velit maiores laudantium quas excepturi impedit quod minima vero ipsam nam vel.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga odit vel nulla necessitatibus neque distinctio cupiditate libero maiores, itaque a repellendus voluptatum pariatur cum beatae. Atque fuga maxime odit incidunt!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia tempore id error praesentium sapiente similique reprehenderit? Deserunt, atque consequatur, voluptatem asperiores necessitatibus inventore consectetur dignissimos</p>
         </div>
       </div>
 
@@ -415,16 +419,22 @@
 
 
 
-  let posicaoAtual = 0
+  let posicaoAtual = 0;
+const maxCliques = 17; // Define o limite de cliques
 
-  function slide(direcao) {
-    const cards = document.querySelector('.card-content')
-    const card = cards.children[0].offsetWidth + 32
-    posicaoAtual += direcao
+function slide(direcao) {
+  const cards = document.querySelector('.card-content');
+  const card = cards.children[0].offsetWidth + 32;
+  
+  // Atualiza a posição conforme a direção
+  posicaoAtual += direcao;
 
-    if (posicaoAtual < 0) posicaoAtual = 0
-    else if (posicaoAtual >= cards.children.length) posicaoAtual = cards.children.length - 1
+  // Limita a posição para não ultrapassar 0 ou o máximo de cliques
+  if (posicaoAtual < 0) posicaoAtual = 0;
+  else if (posicaoAtual >= maxCliques) posicaoAtual = maxCliques - 1;
 
-    cards.style.transform = `translateX(-${posicaoAtual * card}px)`
-  }
+  // Aplica a transformação para mover o carrossel
+  cards.style.transform = `translateX(-${posicaoAtual * card}px)`;
+}
+
 </script>
