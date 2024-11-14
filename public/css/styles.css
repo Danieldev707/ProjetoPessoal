@@ -80,7 +80,7 @@ body{
   }
   
   .container{
-    background-image: url(Imagens/djavanFundo.jpg);
+    background-image: url(../Imagens/djavanFundo.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -137,7 +137,7 @@ body{
   }
   
   .container:hover{
-    background-image: url(Imagens/djavanFundo.jpg);
+    background-image: url(../Imagens/djavanFundo.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
