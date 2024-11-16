@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro | Djavan - O Poeta das Cores</title>
+  <link rel="stylesheet" href="css/cadastro.css">
+  <script src="js/cadastro.js"></script>
+</head>
+<body>
+  <div class="container">
+    <form action="#">
+      <h2>Cadastro</h2>
+      <div class="input-field">
+        <input type="text" id="inpNome" required>
+        <label>Nome</label>
+      </div>
+      <div class="input-field">
+        <input type="email" id="ipnemail" required>
+        <label>Email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="ipnSenha" required>
+        <label>Senha</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="inpConfirmarSenha" required>
+        <label>Confirmar Senha</label>
+      </div>
+      <button type="submit" onclick="cadastrar()">Cadastrar</button>
+      <div class="register">
+        <p>Já possui uma conta? <a href="login.html">Faça login</a></p>
+      </div>
+    </form>
+
+    <div id="caixa-erro">
+      <div id="barra-titulo-erro">
+          <div id="erro-titulo">Aviso</div>
+      </div>
+  </div>
+</body>
+</html>
