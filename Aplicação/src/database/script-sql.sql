@@ -1,13 +1,12 @@
-CREATE DATABASE windowsXP;
+CREATE DATABASE djavan;
 
-USE windowsXP;
+USE djavan;
 
 CREATE TABLE usuario (
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
-usuario CHAR(20),
-senha VARCHAR(20),
-avatar VARCHAR(10))
-AUTO_INCREMENT = 1000;
+email VARCHAR(100),
+senha VARCHAR(25)
+);
 
 SELECT * FROM usuario;

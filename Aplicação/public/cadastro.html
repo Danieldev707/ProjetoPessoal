@@ -27,16 +27,14 @@
         <input type="password" id="inpConfirmarSenha" required>
         <label>Confirmar Senha</label>
       </div>
-      <button type="submit" onclick="cadastrar()">Cadastrar</button>
+      <button type="submit" onclick="cadastrar()" id="validateButton">Cadastrar</button>
       <div class="register">
         <p>Já possui uma conta? <a href="login.html">Faça login</a></p>
       </div>
     </form>
 
-    <div id="caixa-erro">
-      <div id="barra-titulo-erro">
-          <div id="erro-titulo">Aviso</div>
-      </div>
-  </div>
+    <div> <p id="erro" style="color: red;"></p></div>
+
+    <p id="validationMessage"></p>
 </body>
 </html>

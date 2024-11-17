@@ -1,17 +1,9 @@
-function fecharAviso(){
-    document.getElementById('caixa-erro').style.display = 'none'
-    erro.innerHTML = ``
-}
-
 function entrar() {
-    var email = inpemail.value;
-    var senha = inpSenha.value;
+    var email = ipnemail.value;
+    var senha = ipnSenha.value;
 
     if (email === "" || senha === "") {
-        document.getElementById('caixa-erro').style.display = 'flex';
-        icone.src = "images/icones/Alert.png";
         erro.innerHTML = `Preencha todos os campos.`;
-        aviso.play();
     } else {
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -30,13 +22,10 @@ function entrar() {
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.USUARIO = json.email;
                     sessionStorage.SENHA = json.senha;
-                    window.location.href = "desktop.html";
+                    window.location.href = "quiz.html";
                 });
             } else if (resposta.status === 403) { // Status 403
-                document.getElementById('caixa-erro').style.display = 'flex';
-                icone.src = "images/icones/Alert.png";
                 erro.innerHTML = `Usuário e/ou senha inválido(s).`;
-                aviso.play();
             } else {
                 console.error("Erro inesperado:", resposta.status);
             }
@@ -48,10 +37,10 @@ function entrar() {
 }
 
 function mostrarEsconder(){
-    if (inpSenha.type == "password"){
-        inpSenha.type = "text"
+    if (ipnSenha.type == "password"){
+        ipnSenha.type = "text"
     } else {
-        inpSenha.type = "password"
+        ipnSenha.type = "password"
     }
 }
 
