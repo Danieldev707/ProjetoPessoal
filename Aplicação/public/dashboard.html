@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .chart-container {
+      margin: 20px 0;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dashboard de Desempenho do Quiz</h1>
+    <div class="chart-container">
+      <canvas id="scoreChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="userChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Função para buscar dados da API
+    async function fetchData() {
+      try {
+        const response = await fetch("/quiz/listar-pontos"); // Endpoint da API
+        if (!response.ok) {
+          throw new Error("Erro ao buscar os dados da API");
+        }
+        return await response.json(); // Retorna os dados da API
+      } catch (error) {
+        console.error("Erro:", error);
+        return [];
+      }
+    }
+
+    // Função para atualizar os gráficos
+    async function updateCharts() {
+      const data = await fetchData();
+
+      if (!data || data.length === 0) {
+        console.error("Nenhum dado disponível para os gráficos.");
+        return;
+      }
+
+      // Preparar dados para o gráfico 1 (Pontuação dos usuários)
+      const userIds = data.map(item => `Usuário ${item.idUsuario}`);
+      const scores = data.map(item => item.pontos);
+
+      // Atualizar gráfico de pontuação
+      const scoreChartCtx = document.getElementById("scoreChart").getContext("2d");
+      new Chart(scoreChartCtx, {
+        type: "bar",
+        data: {
+          labels: userIds,
+          datasets: [{
+            label: "Pontuação",
+            data: scores,
+            backgroundColor: "rgba(75, 192, 192, 0.6)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+              position: "top",
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // Preparar dados para o gráfico 2 (Distribuição por usuário)
+      const scoreDistribution = data.reduce((acc, item) => {
+        acc[item.idUsuario] = (acc[item.idUsuario] || 0) + 1;
+        return acc;
+      }, {});
+
+      const distributionLabels = Object.keys(scoreDistribution).map(id => `Usuário ${id}`);
+      const distributionValues = Object.values(scoreDistribution);
+
+      // Atualizar gráfico de distribuição
+      const userChartCtx = document.getElementById("userChart").getContext("2d");
+      new Chart(userChartCtx, {
+        type: "pie",
+        data: {
+          labels: distributionLabels,
+          datasets: [{
+            label: "Respostas por Usuário",
+            data: distributionValues,
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.6)",
+              "rgba(54, 162, 235, 0.6)",
+              "rgba(255, 206, 86, 0.6)",
+              "rgba(75, 192, 192, 0.6)",
+              "rgba(153, 102, 255, 0.6)",
+              "rgba(255, 159, 64, 0.6)",
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 1,
+          }],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "bottom",
+            },
+          },
+        },
+      });
+    }
+
+    // Atualizar os gráficos ao carregar a página
+    document.addEventListener("DOMContentLoaded", updateCharts);
+  </script>
+</body>
+</html>

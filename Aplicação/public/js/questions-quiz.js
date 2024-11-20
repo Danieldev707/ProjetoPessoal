@@ -34,7 +34,7 @@ var questions = [
   },
   {
     numb: 4,
-    question: "Qual a parcerai feita na música 'Samurai'?",
+    question: "Qual a parceria feita na música 'Samurai'?",
     options: [
       "Gal Costa",
       "Stevie Wonder",
@@ -56,7 +56,7 @@ var questions = [
   },
   {
     numb: 6,
-    question: "Um dia frio, um bom lugar pra...",
+    question: "Complete a música: Um dia frio, um bom lugar pra...",
     options: [
       "Se amar",
       "Ler um livro",

@@ -27,6 +27,7 @@ function entrar() {
             } else if (resposta.status === 403) { // Status 403
                 erro.innerHTML = `Usuário e/ou senha inválido(s).`;
             } else {
+                erro.innerHTML = `Usuário e/ou senha inválido(s).`;
                 console.error("Erro inesperado:", resposta.status);
             }
         })

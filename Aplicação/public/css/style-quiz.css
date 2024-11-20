@@ -235,7 +235,7 @@ footer button{
     cursor: pointer;
     border: none;
     outline: none;
-    color:var(--black-color);
+    color: #000000;
     border-radius: 5px;
     background-color: #ccc;
     border: 1px solid #ccc;
@@ -317,7 +317,7 @@ footer button.show{
 
 .buttons button.restart{
     width: 110px;   
-    color:var(--black-color);
+    color: #000000;
     background: #ccc;
     border: 1px solid #ccc;
 }
@@ -328,7 +328,7 @@ footer button.show{
 
 .buttons button.quit{
     width: 110px;
-    color: var(--black-color);
+    color:  #000000;
    background-color: #ccc;
    border: 1px solid #ccc;
 }

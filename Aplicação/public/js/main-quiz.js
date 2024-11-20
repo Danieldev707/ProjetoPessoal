@@ -139,9 +139,9 @@
 
      // Avaliar a pontuação do usuário
      var scoreTag;
-     if (userScore > 20) {
+     if (userScore > 10) {
          scoreTag = '<span>Parabéns! Você acertou <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
-     } else if (userScore > 10) {
+     } else if (userScore > 7) {
          scoreTag = '<span>Bom trabalho, você acertou <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
      } else {
          scoreTag = '<span>Sentimos muito, você acertou apenas <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';

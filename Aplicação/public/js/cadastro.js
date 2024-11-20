@@ -53,6 +53,7 @@ function cadastrar(){
                 erro.innerHTML = `Cadastro efetuado com sucesso.`
                 window.location.href = "login.html"
               } else {
+                erro.innerHTML = `Usuário e/ou senha inválido(s).`;
                 throw "Houve um erro ao tentar realizar o cadastro!"
               }
             })
