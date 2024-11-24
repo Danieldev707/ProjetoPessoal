@@ -23,3 +23,19 @@ module.exports = {
     autenticar,
     cadastrar
 };
+
+// Função para buscar um usuário pelo ID
+function buscarPorId(id) {
+    console.log("ACESSEI O USUARIO MODEL - Buscar por ID:", id);
+    var instrucaoSql = `
+        SELECT id, nome, email, cpf, fkSocioTorcedor as socioTorcedorId FROM usuario WHERE id = ${id};
+    `;
+    console.log("Executando a instrução SQL para buscar usuário por ID: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+module.exports = {
+    autenticar,
+    cadastrar,
+    buscarPorId // Exportando a função
+};

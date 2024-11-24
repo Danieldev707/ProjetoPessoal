@@ -33,6 +33,8 @@ function cadastrar(){
     } else if (senhaForte == false){
         erro.innerHTML = `Sua senha é fraca. Siga a recomendação para uma senha forte.`
     } else {
+         window.location.href = "login.html"
+         
         fetch("http://localhost:3333/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -44,21 +46,5 @@ function cadastrar(){
               senhaServer: senha  
             }),
           })
-            .then(function (resposta) {
-              console.log("resposta: ", resposta)
-      
-              
-              
-              if (resposta.ok) {
-                erro.innerHTML = `Cadastro efetuado com sucesso.`
-                window.location.href = "login.html"
-              } else {
-                erro.innerHTML = `Usuário e/ou senha inválido(s).`;
-                throw "Houve um erro ao tentar realizar o cadastro!"
-              }
-            })
-            .catch(function (resposta) {
-              console.log(`#ERRO: ${resposta}`)
-            })
     }
 }

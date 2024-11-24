@@ -24,6 +24,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use("/usuarios", usuarioRouter);
 
+var quizRouter = require("./src/routes/quiz");
+var graficoRouter = require("./src/routes/grafico");
+
+app.use("/quiz", quizRouter);
+app.use("/grafico", graficoRouter);
+
+
+
 app.listen(PORTA_APP, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  

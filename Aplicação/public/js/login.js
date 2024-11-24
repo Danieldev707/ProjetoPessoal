@@ -17,12 +17,12 @@ function entrar() {
         })
         .then(function (resposta) {
             if (resposta.ok) {
+                window.location = "dashboard.html";
                 resposta.json().then(json => {
                     sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.USUARIO = json.email;
                     sessionStorage.SENHA = json.senha;
-                    window.location.href = "quiz.html";
                 });
             } else if (resposta.status === 403) { // Status 403
                 erro.innerHTML = `Usuário e/ou senha inválido(s).`;

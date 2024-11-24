@@ -1,30 +1,208 @@
-/* Geral */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #50080b, #721c24);
-    color: white;
-    text-align: center;
-  }
-  
-  /* Cabeçalho */
-  header {
-    padding: 20px;
-    background: transparent;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
-  
-  /* Gráfico */
-  .chart-container {
-    max-width: 30%;
-    margin: 50px auto;
-    background: #50080b;
-    border-radius: 10px;
-    padding: 20px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  display: flex; 
+  font-family: 'Roboto', sans-serif;
+  background-color: #50080b;
+}
+
+#menu {
+  z-index: 2;
+}
+
+#menu-bar {
+  width: 45px;
+  height: 40px;
+  margin: 30px 0 20px 20px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: #ffff;
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+}
+
+#bar3 {
+  transform: translateY(4px);
+}
+
+.nav {
+  transition: 0.3s ease;
+  display: none;
+}
+
+.nav ul {
+  padding: 0 22px;
+}
+
+.nav li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+.menu-bg, #menu {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.menu-bg {
+  z-index: 1;
+  width: 0;
+  height: 0;
+  margin: 30px 0 20px 20px;
+  background: radial-gradient(circle, #50080b, #50080b);
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.change {
+  display: block;
+}
+
+.change .bar {
+  background-color: white;
+}
+
+.change #bar1 {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 520px;
+  height: 460px;
+  transform: translate(-60%,-30%);
+}
+
+.dash {
+  color: white;
+  margin-left: 7%;
+  width: 100%;
+  overflow: auto;
+  display: flex; 
+  font-family: 'Montserrat', sans-serif;
+  flex-direction: column;
+}
+
+.tela-grafico {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+}
+
+.kpi-grafico {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap; 
+}
+
+.kpi1, .kpi2, .kpi3, .kpi4 {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  width: 22%; 
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  height: 150px; 
+  color: black;
+}
+
+
+
+.kpi1 span:first-child, .kpi2 span:first-child, .kpi3 span:first-child, .kpi4 span:first-child {
+  font-weight: bold;
+}
+
+#top3Pontuadores {
+  list-style-type: none; 
+  padding: 0;
+  margin: 0;
+}
+
+#top3Pontuadores li {
+  margin-bottom: 5px; 
+}
+
+.card-grafico {
+  margin-bottom: 30px;
+}
+
+.titulo-grafico p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.dados-grafico {
+  display: flex; 
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+}
+
+.grafico2 {
+  display: flex;
+  justify-content: center; /* Centraliza os gráficos */
+  gap: 30px; /* Espaço entre os gráficos */
+  flex-wrap: wrap; /* Permite que os gráficos se ajustem em telas menores */
+  width: 100%;
+  max-width: 1200px; /* Limita a largura total da seção */
+  margin: auto; /* Centraliza horizontalmente */
+  color: white;
+}
+
+.grafico2 > div {
+  flex: 1;
+  max-width: 500px; /* Define uma largura máxima para cada gráfico */
+  min-width: 300px; /* Define a largura mínima */
+}
+
+canvas {
+  width: 100% !important; /* Adapta à largura do contêiner pai */
+  max-width: 500px; /* Limita a largura máxima do canvas */
+  height: 310px !important; /* Altura fixa */
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 22px;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+

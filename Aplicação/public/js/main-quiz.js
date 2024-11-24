@@ -1,217 +1,218 @@
- // Selecionando todos os elementos necessários
- const start_btn = document.querySelector(".start_btn button");
- const quiz_box = document.querySelector(".quiz_box");
- const result_box = document.querySelector(".result_box");
- const option_list = document.querySelector(".option_list");
- const time_line = document.querySelector("header .time_line");
- const timeText = document.querySelector(".timer .time_left_txt");
- const timeCount = document.querySelector(".timer .timer_sec");
+// Selecionando todos os elementos necessários
+const botao_inicio = document.querySelector(".start_btn button");
+const caixa_quiz = document.querySelector(".quiz_box");
+const caixa_resultado = document.querySelector(".result_box");
+const lista_opcoes = document.querySelector(".option_list");
+const linha_tempo = document.querySelector("header .time_line");
+const texto_tempo = document.querySelector(".timer .time_left_txt");
+const contador_tempo = document.querySelector(".timer .timer_sec");
 
- var timeValue =  30;
- var que_count = 0;
- var que_numb = 1;
- var userScore = 0;
- var counter;
- var counterLine;
- var widthValue = 0;
+var valor_tempo = 30;
+var contagem_perguntas = 0;
+var numero_pergunta = 1;
+var pontos = 0;
+var contador;
+var contador_linha;
+var largura_valor = 0;
 
- const next_btn = document.querySelector("footer .next_btn");
- const bottom_ques_counter = document.querySelector("footer .total_que");
- const restart_quiz = result_box.querySelector(".buttons .restart");
- const quit_quiz = result_box.querySelector(".buttons .quit");
+const botao_proximo = document.querySelector("footer .next_btn");
+const contador_perguntas_rodape = document.querySelector("footer .total_que");
+const reiniciar_quiz = caixa_resultado.querySelector(".buttons .restart");
+const sair_quiz = caixa_resultado.querySelector(".buttons .quit");
 
- // Função para iniciar o quiz
- function comecarQuiz() {
-     quiz_box.classList.add("activeQuiz"); // Mostrar caixa do quiz
-     showQuestions(0); // Chamando a função showQuestions
-     queCounter(1); // Passando 1 como parâmetro para queCounter
-     startTimer(30); // Chamando a função startTimer
-     startTimerLine(0); // Chamando a função startTimerLine
- }
+function comecarQuiz() {
+    caixa_quiz.classList.add("activeQuiz");
+    mostrarPerguntas(0);
+    contadorPerguntas(1);
+    iniciarTemporizador(30);
+    iniciarLinhaTempo(0);
+}
 
- // Função para sair da caixa de informações
- function sairQuizInfo() {
-     info_box.classList.remove("activeInfo"); // Ocultar caixa de informações
- }
+function sairInformacoesQuiz() {
+    info_box.classList.remove("activeInfo");
+}
 
- // Função para reiniciar o quiz
- function refazerQuiz(){
-     quiz_box.classList.add("activeQuiz"); // Mostrar caixa do quiz
-     result_box.classList.remove("activeResult"); // Ocultar caixa de resultado
-     timeValue = 30; 
-     que_count = 0;
-     que_numb = 1;
-     userScore = 0;
-     widthValue = 0;
-     showQuestions(que_count); // Chamando a função showQuestions
-     queCounter(que_numb); // Passando que_numb para queCounter
-     clearInterval(counter); // Limpar contador
-     clearInterval(counterLine); // Limpar contador da linha
-     startTimer(timeValue); // Chamando a função startTimer
-     startTimerLine(widthValue); // Chamando a função startTimerLine
-     timeText.textContent = "Tempo"; // Alterar texto para "Tempo"
-     next_btn.classList.remove("show"); // Ocultar botão de próximo
- }
+function refazerQuiz() {
+    caixa_quiz.classList.add("activeQuiz");
+    caixa_resultado.classList.remove("activeResult");
+    valor_tempo = 30;
+    contagem_perguntas = 0;
+    numero_pergunta = 1;
+    pontos = 0;
+    largura_valor = 0;
+    mostrarPerguntas(contagem_perguntas);
+    contadorPerguntas(numero_pergunta);
+    clearInterval(contador);
+    clearInterval(contador_linha);
+    iniciarTemporizador(valor_tempo);
+    iniciarLinhaTempo(largura_valor);
+    texto_tempo.textContent = "Tempo";
+    botao_proximo.classList.remove("show");
+}
 
- // Função para sair do quiz
- quit_quiz.onclick = () => {
-     window.location.reload(); // Recarregar a página atual
- }
+sair_quiz.onclick = () => {
+    window.location.reload();
+}
 
- // Função para próximo pergunta
- function proximaPergunta() {
-     if(que_count < questions.length - 1) { // Se a contagem de perguntas for menor que o total
-         que_count++; // Incrementar a contagem de perguntas
-         que_numb++; // Incrementar o número da pergunta
-         showQuestions(que_count); // Chamando a função showQuestions
-         queCounter(que_numb); // Passando que_numb para queCounter
-         clearInterval(counter); // Limpar contador
-         clearInterval(counterLine); // Limpar contador da linha
-         startTimer(timeValue); // Chamando a função startTimer
-         startTimerLine(widthValue); // Chamando a função startTimerLine
-         timeText.textContent = "Tempo"; // Alterar texto para "Tempo"
-         next_btn.classList.remove("show"); // Ocultar botão de próximo
-     } else {
-         clearInterval(counter); // Limpar contador
-         clearInterval(counterLine); // Limpar contador da linha
-         showResult(); // Chamando a função showResult
-     }
- }
+function proximaPergunta() {
+    if (contagem_perguntas < questions.length - 1) {
+        contagem_perguntas++;
+        numero_pergunta++;
+        mostrarPerguntas(contagem_perguntas);
+        contadorPerguntas(numero_pergunta);
+        clearInterval(contador);
+        clearInterval(contador_linha);
+        iniciarTemporizador(valor_tempo);
+        iniciarLinhaTempo(largura_valor);
+        texto_tempo.textContent = "Tempo";
+        botao_proximo.classList.remove("show");
+    } else {
+        clearInterval(contador);
+        clearInterval(contador_linha);
+        mostrarResultado();
+    }
+}
 
- // Obtendo perguntas e opções do array
- function showQuestions(index) {
-     const que_text = document.querySelector(".que_text");
+function mostrarPerguntas(indice) {
+    const texto_pergunta = document.querySelector(".que_text");
 
-     // Criando um novo span e div para pergunta e opções
-     var que_tag = '<span>' + questions[index].numb + ". " + questions[index].question + '</span>';
-     var option_tag = '<div class="option"><span>' + questions[index].options[0] + '</span></div>'
-         + '<div class="option"><span>' + questions[index].options[1] + '</span></div>'
-         + '<div class="option"><span>' + questions[index].options[2] + '</span></div>'
-         + '<div class="option"><span>' + questions[index].options[3] + '</span></div>';
-     que_text.innerHTML = que_tag; // Adicionando nova pergunta
-     option_list.innerHTML = option_tag; // Adicionando novas opções
-     
-     const option = option_list.querySelectorAll(".option");
+    var tag_pergunta = '<span>' + questions[indice].numb + ". " + questions[indice].question + '</span>';
+    var tag_opcao = '<div class="option"><span>' + questions[indice].options[0] + '</span></div>'
+        + '<div class="option"><span>' + questions[indice].options[1] + '</span></div>'
+        + '<div class="option"><span>' + questions[indice].options[2] + '</span></div>'
+        + '<div class="option"><span>' + questions[indice].options[3] + '</span></div>';
+    texto_pergunta.innerHTML = tag_pergunta;
+    lista_opcoes.innerHTML = tag_opcao;
 
-     // Definindo o atributo onclick para todas as opções
-     option.forEach(opt => {
-         opt.onclick = () => optionSelected(opt); // Chamar função optionSelected ao clicar
-     });
- }
+    const opcoes = lista_opcoes.querySelectorAll(".option");
 
- // Função para verificar a resposta do usuário
- function optionSelected(answer) {
-     clearInterval(counter); // Limpar contador
-     clearInterval(counterLine); // Limpar contador da linha
-     var userAns = answer.textContent; // Capturando resposta do usuário
-     var correctAns = questions[que_count].answer; // Obtendo resposta correta
-     const allOptions = option_list.children.length; // Capturando todas as opções
+    opcoes.forEach(opcao => {
+        opcao.onclick = () => opcaoSelecionada(opcao);
+    });
+}
 
-     if (userAns === correctAns) {
-         userScore++; // Incrementar pontuação do usuário
-         answer.classList.add("correct"); // Adicionar classe correta
-         answer.insertAdjacentHTML("beforeend", '<div class="icon tick"><i class="fas fa-check"></i></div>'); // Adicionar ícone
-     } else {
-         answer.classList.add("incorrect"); // Adicionar classe incorreta
-         answer.insertAdjacentHTML("beforeend", '<div class="icon cross"><i class="fas fa-times"></i></div>'); // Adicionar ícone
+function opcaoSelecionada(resposta) {
+    clearInterval(contador);
+    clearInterval(contador_linha);
+    var resposta_usuario = resposta.textContent;
+    var resposta_correta = questions[contagem_perguntas].answer;
+    const todas_opcoes = lista_opcoes.children.length;
 
-         // Mostrar resposta correta se a resposta do usuário estiver errada
-         for (var i = 0; i < allOptions; i++) {
-             if (option_list.children[i].textContent === correctAns) {
-                 option_list.children[i].classList.add("correct"); // Adicionar classe correta
-                 option_list.children[i].insertAdjacentHTML("beforeend", '<div class="icon tick"><i class="fas fa-check"></i></div>'); // Adicionar ícone
-             }
-         }
-     }
+    if (resposta_usuario === resposta_correta) {
+        pontos++;
+        resposta.classList.add("correct");
+        resposta.insertAdjacentHTML("beforeend", '<div class="icon tick"><i class="fas fa-check"></i></div>');
+    } else {
+        resposta.classList.add("incorrect");
+        resposta.insertAdjacentHTML("beforeend", '<div class="icon cross"><i class="fas fa-times"></i></div>');
 
-     // Desabilitar todas as opções após a seleção
-     for (var i = 0; i < allOptions; i++) {
-         option_list.children[i].classList.add("disabled"); // Adicionar classe desabilitada
-     }
-     next_btn.classList.add("show"); // Mostrar botão de próximo
- }
+        for (var i = 0; i < todas_opcoes; i++) {
+            if (lista_opcoes.children[i].textContent === resposta_correta) {
+                lista_opcoes.children[i].classList.add("correct");
+                lista_opcoes.children[i].insertAdjacentHTML("beforeend", '<div class="icon tick"><i class="fas fa-check"></i></div>');
+            }
+        }
+    }
 
- // Exibir o resultado do quiz
- function showResult() {
-     quiz_box.classList.remove("activeQuiz"); // Ocultar caixa do quiz
-     result_box.classList.add("activeResult"); // Mostrar caixa de resultado
-     const scoreText = result_box.querySelector(".score_text");
+    for (var i = 0; i < todas_opcoes; i++) {
+        lista_opcoes.children[i].classList.add("disabled");
+    }
+    botao_proximo.classList.add("show");
+}
 
-     // Avaliar a pontuação do usuário
-     var scoreTag;
-     if (userScore > 10) {
-         scoreTag = '<span>Parabéns! Você acertou <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
-     } else if (userScore > 7) {
-         scoreTag = '<span>Bom trabalho, você acertou <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
-     } else {
-         scoreTag = '<span>Sentimos muito, você acertou apenas <p>' + userScore + '</p> de <p>' + questions.length + '</p></span>';
-     }
-     scoreText.innerHTML = scoreTag; // Adicionar pontuação ao texto
+function cadastrarPontos(pontos) {
+    const idUsuario = sessionStorage.getItem("ID_USUARIO"); // Usando o getItem corretamente
+    sessionStorage.setItem("Pontos", pontos); // Armazenando pontos no sessionStorage
+    
+    if (!idUsuario) {
+      console.error("ID do usuário não encontrado.");
+      return;
+    }
+    
+    fetch("/quiz/cadastrarPontos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pontos: pontos, idUsuario: idUsuario }),
+    })
+    .then((response) => response.json()) 
+    .then((data) => {
+      console.log("Resposta do servidor:", data);
+      if (data.error) {
+        console.error("Erro ao cadastrar pontos:", data.error);
+      } else {
+        console.log("Pontos cadastrados com sucesso:", data);
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao cadastrar pontos:", error);
+    });
+  }   
 
-    // Enviar pontuação para o servidor
+function mostrarResultado() {
+    caixa_quiz.classList.remove("activeQuiz");
+    caixa_resultado.classList.add("activeResult");
+    const texto_pontuacao = caixa_resultado.querySelector(".score_text");
+
+    window.location.href = "dashboard.html";
+
     fetch("/submit-score", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            userScore: userScore,
+            userScore: pontos,
             totalQuestions: questions.length
         }),
     }).then(response => response.json())
-      .then(data => console.log(data.message));
- }
+        .then(data => console.log(data.message));
 
- // Funções de temporizador
- function startTimer(time) {
-     counter = setInterval(() => {
-         timeCount.textContent = time; // Atualizar contagem do tempo
-         time--; // Decrementar o tempo
-         if (time < 9) timeCount.textContent = "0" + timeCount.textContent; // Formatar o tempo
-         if (time < 0) {
-             clearInterval(counter); // Limpar contador
-             timeText.textContent = "Tempo Esgotado"; // Alterar texto para "Tempo Esgotado"
-             showCorrectAnswer(); // Mostrar resposta correta
-             next_btn.classList.add("show"); // Mostrar botão de próximo
-         }
-     }, 2000);
- }
+        cadastrarPontos(pontos);
+}
 
- function resetTimer() {
-     clearInterval(counter); // Limpar contador
-     clearInterval(counterLine); // Limpar contador da linha
-     startTimer(timeValue); // Reiniciar temporizador
-     startTimerLine(widthValue); // Reiniciar temporizador da linha
-     timeText.textContent = "Tempo Restante"; // Alterar texto para "Tempo Restante"
-     next_btn.classList.remove("show"); // Ocultar botão de próximo
- }
+function iniciarTemporizador(tempo) {
+    contador = setInterval(() => {
+        contador_tempo.textContent = tempo;
+        tempo--;
+        if (tempo < 9) contador_tempo.textContent = "0" + contador_tempo.textContent;
+        if (tempo < 0) {
+            clearInterval(contador);
+            texto_tempo.textContent = "Tempo Esgotado";
+            mostrarRespostaCorreta();
+            botao_proximo.classList.add("show");
+        }
+    }, 2000);
+}
 
- function startTimerLine(time) {
-     counterLine = setInterval(() => {
-         time += 1; // Incrementar o tempo da linha
-         time_line.style.width = time + "px"; // Alterar largura da linha
-         if (time > 549) clearInterval(counterLine); // Limpar contador da linha
-     }, 29);
- }
+function iniciarLinhaTempo(tempo) {
+    contador_linha = setInterval(() => {
+        tempo += 1;
+        linha_tempo.style.width = tempo + "px";
+        if (tempo > 549) clearInterval(contador_linha);
+    }, 29);
+}
 
- // Contagem de perguntas
- function queCounter(index) {
-     var totalQueCounTag = '<span><p>' + index + '</p> de <p>' + questions.length + '</p> Perguntas</span>'; // Texto de contagem
-     bottom_ques_counter.innerHTML = totalQueCounTag; // Adicionar contagem ao texto
- }
+function contadorPerguntas(indice) {
+    var tag_contador = '<span><p>' + indice + '</p> de <p>' + questions.length + '</p> Perguntas</span>';
+    contador_perguntas_rodape.innerHTML = tag_contador;
+}
 
- // Mostrar resposta correta quando o tempo se esgota
- function showCorrectAnswer() {
-     const allOptions = option_list.children.length; // Capturar todas as opções
-     var correctAns = questions[que_count].answer; // Obter resposta correta
+function mostrarRespostaCorreta() {
+    const todas_opcoes = lista_opcoes.children.length;
+    var resposta_correta = questions[contagem_perguntas].answer;
 
-     for (var i = 0; i < allOptions; i++) {
-         if (option_list.children[i].textContent === correctAns) {
-             option_list.children[i].classList.add("correct"); // Adicionar classe correta
-             option_list.children[i].insertAdjacentHTML("beforeend", '<div class="icon tick"><i class="fas fa-check"></i></div>'); // Adicionar ícone
-         }
-     }
-     for (var i = 0; i < allOptions; i++) {
-         option_list.children[i].classList.add("disabled"); // Desabilitar todas as opções
-     }
- }
+    for (var i = 0; i < todas_opcoes; i++) {
+        if (lista_opcoes.children[i].textContent === resposta_correta) {
+            lista_opcoes.children[i].classList.add("correct");
+            lista_opcoes.children[i].insertAdjacentHTML("beforeend", '<div class="icon tick"><i class="fas fa-check"></i></div>');
+        }
+    }
+    for (var i = 0; i < todas_opcoes; i++) {
+        lista_opcoes.children[i].classList.add("disabled");
+    }
+    
+    
+}
+

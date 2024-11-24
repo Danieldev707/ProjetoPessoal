@@ -1,148 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f4f4f9;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .chart-container {
-      margin: 20px 0;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DashBoard - Djavan</title>
+  <link rel="stylesheet" href="css/dash.css">
 </head>
+
 <body>
-  <div class="container">
-    <h1>Dashboard de Desempenho do Quiz</h1>
-    <div class="chart-container">
-      <canvas id="scoreChart"></canvas>
+  <div id="menu">
+    <div id="menu-bar" onclick="menuOnClick()">
+      <div id="bar1" class="bar"></div>
+      <div id="bar2" class="bar"></div>
+      <div id="bar3" class="bar"></div>
     </div>
-    <div class="chart-container">
-      <canvas id="userChart"></canvas>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="#">Playlist</a></li>
+        <li><a href="#">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="menu-bg" id="menu-bg"></div>
+
+  <div class="dash">
+    <div class="tela-grafico">
+      <div class="titulo-grafico">
+        <p>Informações Gerais</p>
+      </div>
+      <div class="kpi-grafico">
+        <div class="kpi1">
+          <span>Sua Última Pontuação:</span>
+          <span><span id="ultimaPontuacao">0</span> de 15 pontos</span>
+        </div>
+        <div class="kpi2">
+          <span>Pontuação Média dos Jogadores:</span>
+          <span id="mediaPontuacaoJogador">0</span>
+        </div>
+        <div class="kpi3">
+          <span>Top 3 Pontuadores:</span>
+          <ul id="top3Pontuadores"></ul>
+        </div>
+      </div>
+      <div class="card-grafico">
+        <div class="titulo-grafico">
+          <p>Pontuação dos Jogadores</p>
+        </div>
+        <div class="dados-grafico">
+          <canvas id="myChart2"></canvas>
+          <canvas id="graficoJogadores"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    // Função para buscar dados da API
-    async function fetchData() {
-      try {
-        const response = await fetch("/quiz/listar-pontos"); // Endpoint da API
-        if (!response.ok) {
-          throw new Error("Erro ao buscar os dados da API");
-        }
-        return await response.json(); // Retorna os dados da API
-      } catch (error) {
-        console.error("Erro:", error);
-        return [];
-      }
+    // Menu Toggle
+    function menuOnClick() {
+      document.getElementById("menu-bar").classList.toggle("change");
+      document.getElementById("nav").classList.toggle("change");
+      document.getElementById("menu-bg").classList.toggle("change-bg");
     }
 
-    // Função para atualizar os gráficos
-    async function updateCharts() {
-      const data = await fetchData();
+    // Exibir a última pontuação do usuário
+    const pontuacao = sessionStorage.getItem('Pontos');
+  if (pontuacao == null) {
+    document.getElementById('ultimaPontuacao').innerHTML = '0';
+  } else {
+    document.getElementById('ultimaPontuacao').innerHTML = pontuacao;
+  }
 
-      if (!data || data.length === 0) {
-        console.error("Nenhum dado disponível para os gráficos.");
-        return;
-      }
+    console.log('Pontuação:', pontuacao);
 
-      // Preparar dados para o gráfico 1 (Pontuação dos usuários)
-      const userIds = data.map(item => `Usuário ${item.idUsuario}`);
-      const scores = data.map(item => item.pontos);
+    // Obter média de pontuação dos jogadores
+    fetch('/quiz/listarPontos')
+      .then(response => response.json())
+      .then(data => {
+        const media = data[0]?.['avg(pontos)'] || 0;
+        document.getElementById('mediaPontuacaoJogador').innerText = parseFloat(media).toFixed(2);
+      })
+      .catch(error => console.error('Erro ao buscar média de pontuação:', error));
 
-      // Atualizar gráfico de pontuação
-      const scoreChartCtx = document.getElementById("scoreChart").getContext("2d");
-      new Chart(scoreChartCtx, {
-        type: "bar",
-        data: {
-          labels: userIds,
-          datasets: [{
-            label: "Pontuação",
-            data: scores,
-            backgroundColor: "rgba(75, 192, 192, 0.6)",
-            borderColor: "rgba(75, 192, 192, 1)",
-            borderWidth: 1,
-          }],
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              display: true,
-              position: "top",
-            },
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
+    // Buscar top 3 pontuadores
+    fetch('/grafico/buscarMelhoresPontuadores')
+      .then(response => response.json())
+      .then(data => {
+        const top3List = document.getElementById('top3Pontuadores');
+        top3List.innerHTML = '';
 
-      // Preparar dados para o gráfico 2 (Distribuição por usuário)
-      const scoreDistribution = data.reduce((acc, item) => {
-        acc[item.idUsuario] = (acc[item.idUsuario] || 0) + 1;
-        return acc;
-      }, {});
+        data.slice(0, 3).forEach((player, index) => {
+          const listItem = document.createElement('li');
+          const medalha = ['🥇', '🥈', '🥉'][index] || '';
+          listItem.innerHTML = `${medalha} ${player.nome_jogador}: ${player.pontos} pontos`;
+          top3List.appendChild(listItem);
+        });
+      })
+      .catch(error => console.error('Erro ao buscar top 3 pontuadores:', error));
 
-      const distributionLabels = Object.keys(scoreDistribution).map(id => `Usuário ${id}`);
-      const distributionValues = Object.values(scoreDistribution);
+    // Plotar gráfico de desempenho geral
+    fetch('/grafico/buscarPontuacao')
+      .then(response => response.json())
+      .then(data => {
+        const chartData = {
+          labels: ['Quiz'],
+          datasets: [
+            { label: 'Turista', data: [data[0]?.Ruim || 0], backgroundColor: '#4D5359' },
+            { label: 'Ok', data: [data[0]?.Ok || 0], backgroundColor: '#C9CEBD' },
+            { label: 'Djafã', data: [data[0]?.Excelente || 0], backgroundColor: '#50080b' },
+          ],
+        };
+        new Chart(document.getElementById('myChart2'), { type: 'bar', data: chartData });
+      })
+      .catch(error => console.error('Erro ao buscar dados para gráfico:', error));
 
-      // Atualizar gráfico de distribuição
-      const userChartCtx = document.getElementById("userChart").getContext("2d");
-      new Chart(userChartCtx, {
-        type: "pie",
-        data: {
-          labels: distributionLabels,
-          datasets: [{
-            label: "Respostas por Usuário",
-            data: distributionValues,
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.6)",
-              "rgba(54, 162, 235, 0.6)",
-              "rgba(255, 206, 86, 0.6)",
-              "rgba(75, 192, 192, 0.6)",
-              "rgba(153, 102, 255, 0.6)",
-              "rgba(255, 159, 64, 0.6)",
-            ],
-            borderColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)",
-            ],
-            borderWidth: 1,
-          }],
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              position: "bottom",
-            },
-          },
-        },
-      });
-    }
+    // Plotar gráfico de pontuação dos jogadores
+    fetch('/grafico/buscarJogadoresPontuacoes')
+      .then(response => response.json())
+      .then(data => {
+        const jogadores = data.map(item => item.nome_jogador);
+        const pontuacoes = data.map(item => item.pontos);
 
-    // Atualizar os gráficos ao carregar a página
-    document.addEventListener("DOMContentLoaded", updateCharts);
+        const chartData = {
+          labels: jogadores,
+          datasets: [{ label: 'Pontuação dos jogadores', data: pontuacoes, backgroundColor: '#50080b' }],
+        };
+        new Chart(document.getElementById('graficoJogadores'), { type: 'bar', data: chartData });
+      })
+      .catch(error => console.error('Erro ao buscar pontuação dos jogadores:', error));
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>
+

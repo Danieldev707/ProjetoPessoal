@@ -3,7 +3,7 @@ var database = require("../database/config");
 function listarPontos() {
     console.log("ACESSEI O QUIZ  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
   var instrucao = `
-    select avg(pontos) from desempenho_quiz;
+    select avg(pontos) from quiz;
   `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
@@ -11,7 +11,7 @@ function listarPontos() {
 
 function cadastrarPontos(pontos, idUsuario) {
   var instrucao = `
-    INSERT INTO desempenho_quiz (pontos, fkUsuario) VALUES (${pontos}, ${idUsuario});
+    INSERT INTO quiz (pontos, fkUsuario) VALUES (${pontos}, ${idUsuario});
   `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
