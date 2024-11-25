@@ -27,15 +27,37 @@ function cadastrar(){
         email == "" ||
         senha == "" ||
         confirmarSenha == ""){
-        erro.innerHTML = `Preencha todos os campos.`
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Preencha todos campos para prosseguir!", 
+            color: "#50080b"
+          });
     } else if (senha != confirmarSenha) {
-        erro.innerHTML = `As senhas digitadas não conferem.`
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Senhas digitadas não conferem!",
+        color: "#50080b"
+      });
+      
     } else if (senhaForte == false){
-        erro.innerHTML = `Sua senha é fraca. Siga a recomendação para uma senha forte.`
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Senha fraca, necessita de 8 caracteres, 1 maiúscula, 1 minuscula, um número e um caracter especial!",
+        color: "#50080b"
+      });
     } else {
-         window.location.href = "login.html"
+        Swal.fire({
+        title: "Sucesso!",
+        text: "Usuário cadastrado!!",
+        icon: "success"
+        });
+
+        window.location = "login.html";
          
-        fetch("http://localhost:3333/usuarios/cadastrar", {
+        fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -43,8 +65,9 @@ function cadastrar(){
             body: JSON.stringify({
               nomeServer: nome,
               emailServer: email,
-              senhaServer: senha  
+              senhaServer: senha
             }),
           })
+
     }
 }

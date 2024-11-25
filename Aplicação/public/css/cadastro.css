@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
 }
 body {
   display: flex;
@@ -12,6 +11,9 @@ body {
   min-height: 100vh;
   width: 100%;
   padding: 0 10px;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", 
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  
 }
 body::before {
   content: "";
@@ -32,20 +34,27 @@ body::before {
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 }
-form {
+#form {
   display: flex;
   flex-direction: column;
 }
+
 h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #fff;
 }
+
+a img{
+  display: flex;
+}
+
 .input-field {
   position: relative;
   border-bottom: 2px solid #ccc;
   margin: 15px 0;
 }
+
 .input-field label {
   position: absolute;
   top: 50%;
@@ -81,7 +90,6 @@ h2 {
 }
 .container a {
   color: #efefef;
-  text-decoration: none;
 }
 .container a:hover {
   text-decoration: underline;

@@ -10,9 +10,13 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: url("../Imagens/login1.webp") no-repeat;
+  background: url("https://s2-g1.glbimg.com/1oqSL-NS33PKIlNtz1QL0eYiH2I=/0x0:1080x1350/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2022/c/6/gWuBRDT6K4UOFobRnfbQ/djv22201-djavan-divulgacao-album-ig-feed-layout-0812.jpg") no-repeat;
   background-size: 100%;
   background-size: cover;
+}
+
+a img{
+  display: flex;
 }
 .container {
   width: 400px;
@@ -23,7 +27,7 @@ body {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
-form {
+#form {
   display: flex;
   flex-direction: column;
 }
@@ -63,16 +67,9 @@ h2 {
   top: 10px;
   transform: translateY(-120%);
 }
-.forget {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 25px 0 35px 0;
-  color: #fff;
-}
+
 .container a {
-  color: #efefef;
-  text-decoration: none;
+  color: white;
 }
 .container a:hover {
   text-decoration: underline;

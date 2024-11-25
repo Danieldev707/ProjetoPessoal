@@ -7,10 +7,14 @@
   <title> Faça Seu Login | Djavan - O Poeta das Cores </title>
   <link rel="stylesheet" href="css/login.css">
   <script src="js/login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <div class="container">
-    <form action="#">
+    <div id="form">
+      <a href="index.html">
+        <img width="30" height="30" src="Imagens/homeWhite.png" alt="home"/>
+      </a>
       <h2>Login</h2>
         <div class="input-field">
         <input type="text" id="ipnemail" required>
@@ -20,14 +24,11 @@
         <input type="password" id="ipnSenha" required>
         <label> Insira sua senha: </label>
       </div>
-      <div class="forget">
-        <a href="#">Esqueceu sua senha?</a>
-      </div>
       <button type="submit" onclick="entrar()"> Entrar </button>
       <div class="register">
         <p>Ainda não possua uma conta? <a href="cadastro.html">Registre-se</a></p>
       </div>
-    </form>
+    </div>
   </div>
 </body>
 </html>

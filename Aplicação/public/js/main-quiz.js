@@ -1,7 +1,6 @@
 // Selecionando todos os elementos necessários
 const botao_inicio = document.querySelector(".start_btn button");
 const caixa_quiz = document.querySelector(".quiz_box");
-const caixa_resultado = document.querySelector(".result_box");
 const lista_opcoes = document.querySelector(".option_list");
 const linha_tempo = document.querySelector("header .time_line");
 const texto_tempo = document.querySelector(".timer .time_left_txt");
@@ -17,8 +16,6 @@ var largura_valor = 0;
 
 const botao_proximo = document.querySelector("footer .next_btn");
 const contador_perguntas_rodape = document.querySelector("footer .total_que");
-const reiniciar_quiz = caixa_resultado.querySelector(".buttons .restart");
-const sair_quiz = caixa_resultado.querySelector(".buttons .quit");
 
 function comecarQuiz() {
     caixa_quiz.classList.add("activeQuiz");
@@ -28,27 +25,8 @@ function comecarQuiz() {
     iniciarLinhaTempo(0);
 }
 
-function sairInformacoesQuiz() {
-    info_box.classList.remove("activeInfo");
-}
 
-function refazerQuiz() {
-    caixa_quiz.classList.add("activeQuiz");
-    caixa_resultado.classList.remove("activeResult");
-    valor_tempo = 30;
-    contagem_perguntas = 0;
-    numero_pergunta = 1;
-    pontos = 0;
-    largura_valor = 0;
-    mostrarPerguntas(contagem_perguntas);
-    contadorPerguntas(numero_pergunta);
-    clearInterval(contador);
-    clearInterval(contador_linha);
-    iniciarTemporizador(valor_tempo);
-    iniciarLinhaTempo(largura_valor);
-    texto_tempo.textContent = "Tempo";
-    botao_proximo.classList.remove("show");
-}
+
 
 sair_quiz.onclick = () => {
     window.location.reload();
@@ -151,10 +129,6 @@ function cadastrarPontos(pontos) {
   }   
 
 function mostrarResultado() {
-    caixa_quiz.classList.remove("activeQuiz");
-    caixa_resultado.classList.add("activeResult");
-    const texto_pontuacao = caixa_resultado.querySelector(".score_text");
-
     window.location.href = "dashboard.html";
 
     fetch("/submit-score", {

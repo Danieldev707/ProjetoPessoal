@@ -21,7 +21,7 @@
         <li><a href="quiz.html">Quiz</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="#">Playlist</a></li>
-        <li><a href="#">Sair</a></li>
+        <li><a onclick="limparSessao()">Sair</a></li>
       </ul>
     </nav>
   </div>
@@ -60,6 +60,10 @@
   </div>
 
   <script>
+function limparSessao() {
+    sessionStorage.clear();
+    window.location = "../login.html";
+  }
     // Menu Toggle
     function menuOnClick() {
       document.getElementById("menu-bar").classList.toggle("change");

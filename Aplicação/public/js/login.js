@@ -3,8 +3,21 @@ function entrar() {
     var senha = ipnSenha.value;
 
     if (email === "" || senha === "") {
-        erro.innerHTML = `Preencha todos os campos.`;
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Os campos necessitam ser preenchidos!",
+            color: "#50080b" 
+          });
     } else {
+
+        Swal.fire({
+            title: "Logado com sucesso!",
+            text: "Aproveite Djafã!!",
+            icon: "success"
+            });
+
+
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -17,7 +30,9 @@ function entrar() {
         })
         .then(function (resposta) {
             if (resposta.ok) {
+
                 window.location = "dashboard.html";
+
                 resposta.json().then(json => {
                     sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.NOME_USUARIO = json.nome;
@@ -25,23 +40,31 @@ function entrar() {
                     sessionStorage.SENHA = json.senha;
                 });
             } else if (resposta.status === 403) { // Status 403
-                erro.innerHTML = `Usuário e/ou senha inválido(s).`;
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Usuário e/ou senha inválido(s)!",
+                    color: "#50080b"
+                  });
             } else {
-                erro.innerHTML = `Usuário e/ou senha inválido(s).`;
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Usuário e/ou senha inválido(s)!", 
+                    color: "#50080b"
+                  });
                 console.error("Erro inesperado:", resposta.status);
             }
         })
         .catch(function (erro) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Usuário e/ou senha inválido(s)!", 
+                color: "#50080b"
+              });
             console.error("Erro de conexão com o servidor:", erro);
         });
-    }
-}
-
-function mostrarEsconder(){
-    if (ipnSenha.type == "password"){
-        ipnSenha.type = "text"
-    } else {
-        ipnSenha.type = "password"
     }
 }
 

@@ -6,10 +6,14 @@
   <title>Cadastro | Djavan - O Poeta das Cores</title>
   <link rel="stylesheet" href="css/cadastro.css">
   <script src="js/cadastro.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <div class="container">
-    <form action="#">
+    <div id="form">
+      <a href="index.html">
+        <img width="30" height="30" src="Imagens/homeWhite.png" alt="home"/>
+      </a>
       <h2>Cadastro</h2>
       <div class="input-field">
         <input type="text" id="inpNome" required>
@@ -31,10 +35,7 @@
       <div class="register">
         <p>Já possui uma conta? <a href="login.html">Faça login</a></p>
       </div>
-    </form>
+    </div>
 
-    <div> <p id="erro" style="color: red;"></p></div>
-
-    <p id="validationMessage"></p>
 </body>
 </html>

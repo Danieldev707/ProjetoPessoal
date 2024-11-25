@@ -32,6 +32,13 @@ header {
 }
 
 
+
+header h1 {
+  font-size: 27px;
+}
+
+
+
 .logo {
   font-size: 18px; 
   color: #ccc;
@@ -42,7 +49,7 @@ header {
 nav {
   display: flex;
   gap: 80px;
-  padding-right: 290px;
+  padding-right: 480px;
   margin-bottom: 5px;
 }
 
@@ -52,20 +59,13 @@ nav a {
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   transition: color 0.3s ease;
+  font-size: 18px;
 }
 
 nav a:hover {
-  color: black;
+  color: gray;
 }
 
-header h1 {
-  font-size: 27px;
-}
-
-
-body.scrolled header {
-  top: -100px;/
-}
 
 a {
     color: #ccc;
@@ -515,7 +515,6 @@ title{
 
 .footer{
   background:#000;
-  padding:30px 0px;
   font-family: 'Play', sans-serif;
   text-align:center;
   }
@@ -537,10 +536,7 @@ title{
   .footer .row a:hover{
   color:#fff;
   }
-  
-  .footer .row ul{
-  width:100%;
-  }
+
   
   .footer .row ul li{
   display:inline-block;
@@ -552,21 +548,6 @@ title{
   margin:0% 1%;
   }
   
-  @media (max-width:720px){
-  .footer{
-  text-align:left;
-  padding:5%;
-  }
-  .footer .row ul li{
-  display:block;
-  margin:10px 0px;
-  text-align:left;
-  }
-  .footer .row a i{
-  margin:0% 3%;
-  }
-  }
-
 
   .cont1 {
     width: 23.8%;
@@ -586,12 +567,12 @@ title{
     margin-top: 0;
   }
   
-  /* Esconder o checkbox */
+  
   input[type="checkbox"] {
     display: none;
   }
   
-  /* Estilo do botão expansor */
+  
   label {
     display: block;
     cursor: pointer;
@@ -602,7 +583,7 @@ title{
     border-radius: 5px;
   }
   
-  /* Área do conteúdo expansível */
+  
   .content1 {
     max-height: 0;
     overflow: hidden;
@@ -613,9 +594,9 @@ title{
     color: #fff;
   }
   
-  /* Expande o conteúdo quando o checkbox está marcado */
+  
   input[type="checkbox"]:checked ~ .content1 {
-    max-height: 400px; /* Defina o máximo que o texto pode expandir */
+    max-height: 400px; 
     padding: 10px;
   }
 
@@ -629,8 +610,8 @@ title{
     color: #fff;
   }
   
-  /* Expande o conteúdo quando o checkbox está marcado */
+  
   input[type="checkbox"]:checked ~ .content2 {
-    max-height: 400px; /* Defina o máximo que o texto pode expandir */
+    max-height: 400px;
     padding: 10px;
   }
