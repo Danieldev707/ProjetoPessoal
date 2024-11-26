@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubra sua playlist!</title>
-    <link rel="stylesheet" href="css/playlist.css">
-    <script src="js/playlist.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist Personalizada de Djavan</title>
+  <script src="js/playlist.js"></script>
+  <link rel="stylesheet" href="css/playlist.css">
 </head>
 <body>
-    
-</body> 
+  <div class="container">
+    <h1>Playlist Personalizada de Djavan</h1>
+    <div id="quiz">
+      <div class="question">
+        <p><strong>1. Como você está se sentindo hoje?</strong></p>
+        <select id="mood">
+          <option value="calm">Calmo</option>
+          <option value="romantic">Romântico</option>
+          <option value="energetic">Energético</option>
+        </select>
+      </div>
+      <div class="question">
+        <p><strong>2. Prefere músicas mais antigas ou recentes?</strong></p>
+        <select id="era">
+          <option value="classic">Clássicas</option>
+          <option value="modern">Modernas</option>
+        </select>
+      </div>
+      <button onclick="generatePlaylist()">Criar Playlist</button>
+    </div>
+    <div id="result" class="result" style="display: none;">
+      <h2>Sua Playlist:</h2>
+      <ul id="playlist"></ul>
+    </div>
+  </div>
+
+</body>
 </html>

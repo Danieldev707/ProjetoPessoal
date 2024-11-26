@@ -2,17 +2,16 @@
 const botao_inicio = document.querySelector(".start_btn button");
 const caixa_quiz = document.querySelector(".quiz_box");
 const lista_opcoes = document.querySelector(".option_list");
-const linha_tempo = document.querySelector("header .time_line");
 const texto_tempo = document.querySelector(".timer .time_left_txt");
 const contador_tempo = document.querySelector(".timer .timer_sec");
 
-var valor_tempo = 30;
+var valor_tempo = 15;
 var contagem_perguntas = 0;
 var numero_pergunta = 1;
 var pontos = 0;
 var contador;
 var contador_linha;
-var largura_valor = 0;
+var largura_valor = 0
 
 const botao_proximo = document.querySelector("footer .next_btn");
 const contador_perguntas_rodape = document.querySelector("footer .total_que");
@@ -21,16 +20,9 @@ function comecarQuiz() {
     caixa_quiz.classList.add("activeQuiz");
     mostrarPerguntas(0);
     contadorPerguntas(1);
-    iniciarTemporizador(30);
-    iniciarLinhaTempo(0);
+    iniciarTemporizador(15);
 }
 
-
-
-
-sair_quiz.onclick = () => {
-    window.location.reload();
-}
 
 function proximaPergunta() {
     if (contagem_perguntas < questions.length - 1) {
@@ -41,7 +33,6 @@ function proximaPergunta() {
         clearInterval(contador);
         clearInterval(contador_linha);
         iniciarTemporizador(valor_tempo);
-        iniciarLinhaTempo(largura_valor);
         texto_tempo.textContent = "Tempo";
         botao_proximo.classList.remove("show");
     } else {
@@ -160,14 +151,6 @@ function iniciarTemporizador(tempo) {
     }, 2000);
 }
 
-function iniciarLinhaTempo(tempo) {
-    contador_linha = setInterval(() => {
-        tempo += 1;
-        linha_tempo.style.width = tempo + "px";
-        if (tempo > 549) clearInterval(contador_linha);
-    }, 29);
-}
-
 function contadorPerguntas(indice) {
     var tag_contador = '<span><p>' + indice + '</p> de <p>' + questions.length + '</p> Perguntas</span>';
     contador_perguntas_rodape.innerHTML = tag_contador;
@@ -186,7 +169,6 @@ function mostrarRespostaCorreta() {
     for (var i = 0; i < todas_opcoes; i++) {
         lista_opcoes.children[i].classList.add("disabled");
     }
-    
     
 }
 

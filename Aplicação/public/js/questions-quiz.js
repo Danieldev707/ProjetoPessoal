@@ -23,14 +23,14 @@ var questions = [
   },
   {
     numb: 3,
-    question: "Complete a música: Amar é um deserto e seus temores...",
+    question: "Qual foi a primeira música de Djavan que fez sucesso internacional?",
     options: [
-      "O seu amor e suas cores",
-      "Cadê você? Que solidão!",
-      "Só sei viver se for por você",
-      "Vida que vai na sela dessas dores"
+      "Oceano",
+      "Flor de Lis",
+      "Um amor Puro",
+      "Açai"
     ],
-    answer: "Vida que vai na sela dessas dores"
+    answer: "Flor de Lis"
   },
   {
     numb: 4,
@@ -56,14 +56,14 @@ var questions = [
   },
   {
     numb: 6,
-    question: "Complete a música: Um dia frio, um bom lugar pra...",
+    question: "Djavan compôs músicas que foram interpretadas por outros artistas. Qual cantora brasileira gravou 'Meu Bem Querer?'",
     options: [
-      "Se amar",
-      "Ler um livro",
-      "Viver contigo",
-      "Um abraço amigo"
+      "Alcione",
+      "Gal Costa",
+      "Rita Lee",
+      "Beth Carvalho"
     ],
-    answer: "Ler um livro"
+    answer: "Gal Costa"
   },
   {
     numb: 7,
@@ -89,14 +89,14 @@ var questions = [
   },
   {
     numb: 9,
-    question: "Complete a música: Tudo vai mudar, posso pressentir",
+    question: "Djavan é conhecido por misturar diferentes estilos musicais. Qual desses estilos NÃO está frequentemente presente em suas músicas?",
     options: [
-      "Venha a mim de corpo e alma",
-      "Isso é clamor, de amor",
-      "Você vai lembrar e rir",
-      "Vamos cantar e nos unir"
+      "Jazz",
+      "Samba",
+      "Eletrônica",
+      "Bossa Nova"
     ],
-    answer: "Você vai lembrar e rir"
+    answer: "Eletrônica"
   },
   {
     numb: 10,
@@ -122,14 +122,14 @@ var questions = [
   },
   {
     numb: 12,
-    question: "Complete a música: No fundo eu julgo o mundo",
+    question: "Qual país Djavan viajou com Caetano Veloso",
     options: [
-      "Um fato consumado",
-      "Uma obra do acaso",
-      "Movo mundos e fundos",
-      "E vivo de memória..."
+      "Cuba",
+      "Colombia",
+      "Argentina",
+      "México"
     ],
-    answer: "Um fato consumado"
+    answer: "Cuba"
   },
   {
     numb: 13,
@@ -155,13 +155,13 @@ var questions = [
   },
   {
     numb: 15,
-    question: "Complete a música: Eu quis lutar contra o poder do amor...",
+    question: "Em que ano Djavan lançou seu primeiro álbum 'Voz e violão'",
     options: [
-      "Traz uma praga e me afaga a pele",
-      "Não há nada em lugar nenhum",
-      "Longe de ti, tudo parou",
-      "Caí nos pés do vencedor"
+      "1962",
+      "1977",
+      "1984",
+      "1976"
     ],
-    answer: "Caí nos pés do vencedor"
+    answer: "1976"
   }
 ];
