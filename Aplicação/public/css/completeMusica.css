@@ -116,6 +116,10 @@
     user-select: none;
 }
 
+span {
+display: block; 
+}
+
 
 
 section{
