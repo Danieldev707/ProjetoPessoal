@@ -43,40 +43,45 @@ function proximaPergunta() {
 
 function mostrarPerguntas(indice) {
     const texto_pergunta = document.querySelector(".que_text");
-
-    var tag_pergunta = '<span>' + completeMusica[indice].numb + ". " + completeMusica[indice].question + '</span>';
-    var tag_opcao = '';
-
-    
-
-
-    tag_opcao = 
-    '<div class="musica">\n' +
-    '  <i>\n' +
-    '    <img onclick="' + completeMusica[indice].musica.funcaoIniciar + '()" \n' +
-    '         src="Imagens/botao-play-ponta-de-seta.png" \n' +
-    '         id="' + completeMusica[indice].musica.idImagem + '" />\n' +
-    '    <audio id="' + completeMusica[indice].musica.idAudio + '" \n' +
-    '           src="' + completeMusica[indice].musica.src + '"></audio>\n' +
-    '</div>';
+    const lista_opcoes = document.querySelector(".option_list");
   
-
-
-    tag_opcao += 
-    '<div class="option"><span>' + completeMusica[indice].options[0] + '</span></div>' +
-    '<div class="option"><span>' + completeMusica[indice].options[1] + '</span></div>' +
-    '<div class="option"><span>' + completeMusica[indice].options[2] + '</span></div>' +
-    '<div class="option"><span>' + completeMusica[indice].options[3] + '</span></div>';
-
-    texto_pergunta.innerHTML = tag_pergunta;
-    lista_opcoes.innerHTML = tag_opcao;
-
-    const opcoes = lista_opcoes.querySelectorAll(".option");
-
-    opcoes.forEach(opcao => {
-        opcao.onclick = () => opcaoSelecionada(opcao);
+   
+    const tag_pergunta =
+      "<span>" +
+      completeMusica[indice].numb +
+      ". " +
+      completeMusica[indice].question +
+      "</span>";
+  
+   
+    const tag_musica = `
+      <div class="musica">
+        <img 
+          onclick="iniciarMusica('${completeMusica[indice].musica.idAudio}', '${completeMusica[indice].musica.idImagem}')" 
+          src="Imagens/botao-play-ponta-de-seta.png" 
+          id="${completeMusica[indice].musica.idImagem}" />
+        <audio 
+          id="${completeMusica[indice].musica.idAudio}" 
+          src="${completeMusica[indice].musica.src}"></audio>
+      </div>`;
+  
+    
+    let tag_opcao = "";
+    completeMusica[indice].options.forEach((opcao) => {
+      tag_opcao += `<div class="option"><span>${opcao}</span></div>`;
     });
-}
+  
+    
+    texto_pergunta.innerHTML = tag_pergunta;
+    lista_opcoes.innerHTML = tag_musica + tag_opcao;
+  
+   
+    const opcoes = lista_opcoes.querySelectorAll(".option");
+    opcoes.forEach((opcao) => {
+      opcao.onclick = () => opcaoSelecionada(opcao);
+    });
+  }
+  
 
 function opcaoSelecionada(resposta) {
     clearInterval(contador);
@@ -176,76 +181,3 @@ function mostrarRespostaCorreta() {
     
 }
 
-function iniciarOceano() {
-    audioOceano.play()
-    imagemOceano.src = `Imagens/pausa.png`
-    imagemOceano.onclick = pausarOceano
-  }
-
-  function iniciarAmorPuro() {
-    audioAmorPuro.play()
-    imagemAmorPuro.src = `Imagens/pausa.png`
-    imagemAmorPuro.onclick = pausarAmorPuro
-  }
-
-  function iniciarSamurai() {
-    audioSamurai.play()
-    imagemSamurai.src = `Imagens/pausa.png`
-    imagemSamurai.onclick = pausarSamurai
-  }
-
-  function iniciarEuTeDevoro() {
-    audioEuTeDevoro.play()
-    imgEuTeDevoro.src = `Imagens/pausa.png`
-    imgEuTeDevoro.onclick = pausarEuTeDevoro
-  }
-
-  function iniciarFlorDeLis() {
-    audioFlorDeLis.play()
-    imagemFlorDeLis.src = `Imagens/pausa.png`
-    imagemFlorDeLis.onclick = pausarFlorDeLis
-  }
-
-  function iniciarMeuBemQuerer() {
-    audioMeuBemQuerer.play()
-    imagemMeuBemQuerer.src = `Imagens/pausa.png`
-    imagemMeuBemQuerer.onclick = pausarMeuBemQuerer
-  }
-
-
-  function pausarOceano() {
-
-    audioOceano.pause()
-    imagemOceano.src = `Imagens/botao-play-ponta-de-seta.png`
-    imagemOceano.onclick = iniciarOceano
-  }
-
-  function pausarAmorPuro() {
-    audioAmorPuro.pause()
-    imagemAmorPuro.src = `Imagens/botao-play-ponta-de-seta.png`
-    imagemAmorPuro.onclick = iniciarAmorPuro
-  }
-
-  function pausarSamurai() {
-    audioSamurai.pause()
-    imagemSamurai.src = `Imagens/botao-play-ponta-de-seta.png`
-    imagemSamurai.onclick = iniciarSamurai
-  }
-  function pausarEuTeDevoro() {
-    audioEuTeDevoro.pause()
-    imgEuTeDevoro.src = `../Imagens/botao-play-ponta-de-seta.png`
-    imgEuTeDevoro.onclick = iniciarEuTeDevoro
-
-  }
-  function pausarFlorDeLis() {
-    audioFlorDeLis.pause()
-    imagemFlorDeLis.src = `Imagens/botao-play-ponta-de-seta.png`
-    imagemFlorDeLis.onclick = iniciarFlorDeLis
-
-  }
-  function pausarMeuBemQuerer() {
-    audioMeuBemQuerer.pause()
-    imagemMeuBemQuerer.src = `Imagens/botao-play-ponta-de-seta.png`
-    imagemMeuBemQuerer.onclick = iniciarMeuBemQuerer
-
-  }
