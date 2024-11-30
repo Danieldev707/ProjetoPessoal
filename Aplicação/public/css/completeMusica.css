@@ -8,7 +8,7 @@
 
 
 .banner-background {
-    background-image: url("../Imagens/wpp2.jpg");
+    background-image: url("../Imagens/wpp3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -116,10 +116,7 @@
     user-select: none;
 }
 
-span {
-display: block; 
-}
-
+  
 
 
 section{
@@ -253,4 +250,3 @@ footer button.show{
     pointer-events: auto;
     transform: scale(1);
 }
-

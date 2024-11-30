@@ -9,30 +9,70 @@
 </head>
 <body>
   <div class="container">
-    <h1>Playlist Personalizada de Djavan</h1>
+    <h1>Playlist Personalizada</h1>
+    <h2>Seja um Djafã</h2>
     <div id="quiz">
       <div class="question">
-        <p><strong>1. Como você está se sentindo hoje?</strong></p>
-        <select id="mood">
-          <option value="calm">Calmo</option>
-          <option value="romantic">Romântico</option>
-          <option value="energetic">Energético</option>
+        <p><strong>Qual instrumento musical mais te encanta em uma música?</strong></p>
+        <select id="instrumento">
+          <option value="guitarra">Violão</option>
+          <option value="piano">Piano</option>
+          <option value="percussao">Percussão</option>
+          <option value="saxofone">Saxofone</option>
         </select>
       </div>
       <div class="question">
-        <p><strong>2. Prefere músicas mais antigas ou recentes?</strong></p>
-        <select id="era">
-          <option value="classic">Clássicas</option>
-          <option value="modern">Modernas</option>
+        <p><strong>Qual tipo de letra você mais aprecia?</strong></p>
+        <select id="lyrics">
+          <option value="poetico">Poética e reflexiva</option>
+          <option value="romantico">Romântica e apaixonada</option>
+          <option value="danceable">Dançante e vibrante</option>
+          <option value="nostalgico">Nostálgica e clássica</option>
         </select>
       </div>
-      <button onclick="generatePlaylist()">Criar Playlist</button>
+      <div class="question">
+        <p><strong>Qual ambiente combina mais com sua música ideal?</strong></p>
+        <select id="ambiente">
+          <option value="praia">Praia ao entardecer</option>
+          <option value="romantico">Uma noite romântica</option>
+          <option value="ensolarado">Um dia ensolarado com amigos</option>
+          <option value="introspective">Um momento introspectivo</option>
+        </select>
+      </div>
+      <div class="question">
+        <p><strong>Qual desses ritmos te atrai mais?</strong></p>
+        <select id="rhythm">
+          <option value="bossa-nova">Bossa Nova</option>
+          <option value="samba">Samba</option>
+          <option value="jazz">Jazz</option>
+          <option value="mpb">Pop MPB</option>
+        </select>
+      </div>
+      <div class="question">
+        <p><strong>O que é mais importante para você em uma música?</strong></p>
+        <select id="prioridade">
+          <option value="melodia">A melodia</option>
+          <option value="voz">A voz do cantor</option>
+          <option value="harmonia">A harmonia instrumental</option>
+          <option value="emocao-connection">A conexão emocional</option>
+        </select>
+      </div>
+      <div class="question">
+        <p><strong>Se pudesse dar um tema para sua playlist, qual seria?</strong></p>
+        <select id="tema">
+          <option value="amor">Amor e paixão</option>
+          <option value="alegria">Alegria e celebração</option>
+          <option value="reflexao">Reflexões da vida</option>
+          <option value="viagem">Viagem pelo Brasil</option>
+        </select>
+      </div>
+      <button onclick="gerarPlaylist()">Criar Playlist</button>
     </div>
     <div id="result" class="result" style="display: none;">
       <h2>Sua Playlist:</h2>
       <ul id="playlist"></ul>
     </div>
   </div>
-
 </body>
 </html>
+

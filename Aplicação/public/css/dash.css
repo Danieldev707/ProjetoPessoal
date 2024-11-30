@@ -98,8 +98,8 @@ body {
 }
 
 .change-bg {
-  width: 520px;
-  height: 460px;
+  width: 525px;
+  height: 525px;
   transform: translate(-60%,-30%);
 }
 
@@ -180,19 +180,19 @@ body {
 
 .grafico2 {
   display: flex;
-  justify-content: center; /* Centraliza os gráficos */
-  gap: 30px; /* Espaço entre os gráficos */
-  flex-wrap: wrap; /* Permite que os gráficos se ajustem em telas menores */
+  justify-content: center; 
+  gap: 30px; 
+  flex-wrap: wrap; 
   width: 100%;
-  max-width: 1200px; /* Limita a largura total da seção */
-  margin: auto; /* Centraliza horizontalmente */
+  max-width: 1200px; 
+  margin: auto; 
   color: white;
 }
 
 .grafico2 > div {
   flex: 1;
-  max-width: 500px; /* Define uma largura máxima para cada gráfico */
-  min-width: 300px; /* Define a largura mínima */
+  max-width: 500px;
+  min-width: 300px; 
 }
 
 canvas {
@@ -205,4 +205,3 @@ canvas {
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 }
-

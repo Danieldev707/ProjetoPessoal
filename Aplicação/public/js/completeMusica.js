@@ -1,3 +1,4 @@
+
 const completeMusica = [
   {
     numb: 1,
@@ -100,7 +101,7 @@ const completeMusica = [
   },
   {
     numb: 10,
-    question: "Um amor puro Não sabe a força que tem",
+    question: "Um amor tão puro que ainda nem sabe a força que tem",
     options: ["Meu amor, eu juro Ser teu amor refém", "Meu amor, eu juro Ser teu e de mais ninguém", "Meu amor, eu juro Ser teu amante além", "Meu amor, eu juro Você é o maior bem"],
     answer: "Meu amor, eu juro Ser teu e de mais ninguém",
     musica: {
@@ -127,7 +128,5 @@ function pausarMusica(idAudio, idImagem) {
   imagem.src = "Imagens/botao-play-ponta-de-seta.png";
   imagem.onclick = () => iniciarMusica(idAudio, idImagem);
 }
-
-
 
 

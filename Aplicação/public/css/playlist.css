@@ -1,19 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    font-family: 'Poppins', sans-serif;
+    background: url(../Imagens/fundoBranco.jpg);
     color: #333;
     margin: 0;
     padding: 20px;
   }
   .container {
     max-width: 600px;
-    margin: 0 auto;
     padding: 20px;
-    background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  h1 {
+  h1, h2 {
     text-align: center;
     color: #50080B;
   }
