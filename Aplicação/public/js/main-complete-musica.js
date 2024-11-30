@@ -1,4 +1,3 @@
-// Selecionando todos os elementos necessários
 const botao_inicio = document.querySelector(".start_btn button");
 const caixa_quiz = document.querySelector(".quiz_box");
 const lista_opcoes = document.querySelector(".option_list");
@@ -126,7 +125,5 @@ function mostrarRespostaCorreta() {
     for (var i = 0; i < todas_opcoes; i++) {
         lista_opcoes.children[i].classList.add("disabled");
     }
-
-  
     
 }

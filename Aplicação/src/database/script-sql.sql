@@ -11,13 +11,21 @@ senha VARCHAR(25)
 
 CREATE TABLE quiz (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    pontos INT,
-    acertos INT,
-    erros INT,
     fkUsuario INT,
-    FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
+    pontos INT, 
+    FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario)
 );
+
+CREATE TABLE completeMusica (
+    idComplete INT PRIMARY KEY AUTO_INCREMENT,
+    fkUsuario INT,
+    pontos INT,
+    FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario)
+);
+
+SELECT * FROM completeMusica;
 
 
 SELECT * FROM usuario;
 SELECT * FROM quiz;
+SELECT * FROM completeMusica;

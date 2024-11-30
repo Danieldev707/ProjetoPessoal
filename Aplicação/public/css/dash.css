@@ -129,7 +129,7 @@ body {
   flex-wrap: wrap; 
 }
 
-.kpi1, .kpi2, .kpi3, .kpi4 {
+.kpi1, .kpi2, .kpi3, .kpi4, .kpi5, .kpi6 {
   background-color: #fff;
   padding: 30px;
   border-radius: 5px;
@@ -191,7 +191,7 @@ body {
 
 .grafico2 > div {
   flex: 1;
-  max-width: 500px;
+  max-width: 500px; 
   min-width: 300px; 
 }
 

@@ -90,8 +90,8 @@ function opcaoSelecionada(resposta) {
 }
 
 function cadastrarPontos(pontos) {
-    const idUsuario = sessionStorage.getItem("ID_USUARIO"); // Usando o getItem corretamente
-    sessionStorage.setItem("Pontos", pontos); // Armazenando pontos no sessionStorage
+    const idUsuario = sessionStorage.getItem("ID_USUARIO"); 
+    sessionStorage.setItem("Pontos", pontos); 
     
     if (!idUsuario) {
       console.error("ID do usuário não encontrado.");

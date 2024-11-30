@@ -17,7 +17,7 @@ function gerarPlaylist() {
     playlist = "https://open.spotify.com/playlist/3tlRemyudcAAqb07LcGlrG?si=M8ClnyvKSOKqrccvBsvnsg"; // Lembre como Djavan
   }
 
-  const resultado = document.getElementById("result");
-  resultado.innerHTML = `<p><a href="${playlist}" target="_blank">Clique aqui para ouvir sua playlist personalizada!</a></p>`;
+  
+  resultado.innerHTML = `<p><a href="${playlist}">Clique aqui para ouvir sua playlist personalizada!</a></p>`;
   resultado.style.display = "block";
 }
