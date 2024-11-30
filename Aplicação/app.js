@@ -30,6 +30,14 @@ var graficoRouter = require("./src/routes/grafico");
 app.use("/quiz", quizRouter);
 app.use("/grafico", graficoRouter);
 
+var completeRouter = require("./src/routes/complete");
+var graficoRouter = require("./src/routes/grafico");
+
+app.use("/complete", completeRouter);
+app.use("/grafico", graficoRouter);
+
+
+
 
 
 app.listen(PORTA_APP, function () {

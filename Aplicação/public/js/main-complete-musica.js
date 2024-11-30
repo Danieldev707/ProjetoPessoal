@@ -15,7 +15,6 @@ function comecarQuiz() {
     caixa_quiz.classList.add("activeQuiz");
     mostrarPerguntas(0);
     contadorPerguntas(1);
-    iniciarTemporizador(30);
 }
 
 function proximaPergunta() {
@@ -28,11 +27,13 @@ function proximaPergunta() {
         // Verifica se é a penúltima pergunta
         if (contagem_perguntas === completeMusica.length - 1) {
             botao_proximo.textContent = "Finalizar"; // Altera o texto do botão
+
         }
 
         botao_proximo.classList.remove("show");
     } else {
         // Redireciona para a página ao finalizar
+        cadastrarPontosComplete(pontos)
         window.location.href = "dashboard.html";
     }
 }
@@ -104,7 +105,59 @@ function opcaoSelecionada(resposta) {
         lista_opcoes.children[i].classList.add("disabled");
     }
     botao_proximo.classList.add("show");
-}  
+}
+
+
+function cadastrarPontosComplete(pontos) {
+    const idUsuario = sessionStorage.getItem("ID_USUARIO"); 
+    sessionStorage.setItem("PontosComplete", pontos); 
+    
+    if (!idUsuario) {
+      console.error("ID do usuário não encontrado.");
+      return;
+    }
+    
+    fetch("/complete/cadastrarPontosComplete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pontos: pontos, idUsuario: idUsuario }),
+    })
+    .then((response) => response.json()) 
+    .then((data) => {
+      console.log("Resposta do servidor:", data);
+      if (data.error) {
+        console.error("Erro ao cadastrar pontos:", data.error);
+      } else {
+        console.log("Pontos cadastrados com sucesso:", data);
+      }
+    })
+    .catch((error) => {
+      console.error("Erro ao cadastrar pontos:", error);
+    });
+  }   
+
+  function mostrarResultado() {
+    fetch("/submit-score", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            userScore: pontos,
+            totalQuestions: questions.length
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message);
+        cadastrarPontosComplete(pontos);
+        window.location.href = "dashboard.html";
+    })
+    .catch(error => console.error("Erro ao enviar o score:", error));
+}
+
 
 
 function contadorPerguntas(indice) {

@@ -2,7 +2,7 @@ var quizModel = require("../models/quizModel");
 
 function listarPontosComplete(req, res) {
 
-  quizModel.listarPontos().then((resultadoListarPontos) => {
+  quizModel.listarPontosComplete().then((resultadoListarPontos) => {
     if (resultadoListarPontos.length > 0) {
       res.status(200).json(resultadoListarPontos);
     } else {
@@ -24,7 +24,7 @@ function cadastrarPontosComplete(req, res) {
   } else if (idUsuario == undefined) {
     res.status(400).send("idUsuario está undefined!");
   } else {
-    quizModel.cadastrarPontos(pontos, idUsuario)
+    quizModel.cadastrarPontosComplete(pontos, idUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       })

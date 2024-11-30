@@ -33,7 +33,7 @@
       <h1> Olá Djafã</h1>
     <div class="tela-grafico">
       <div class="titulo-grafico">
-        <p>Informações Gerais</p>
+        <p>Informações Gerais do QUIZ</p>
       </div>
       <div class="kpi-grafico">
         <div class="kpi1">
@@ -49,16 +49,16 @@
           <ul id="top3Pontuadores"></ul>
         </div>
         <div class="kpi4">
-          <span>Top 3 Pontuadores:</span>
-          <ul id="top3Pontuadores"></ul>
+          <span>Sua Última Pontuação:</span>
+          <span><span id="ultimaPontuacaoComplete">0</span> de 10 pontos</span>
         </div>
         <div class="kpi5">
-          <span>Top 3 Pontuadores:</span>
-          <ul id="top3Pontuadores"></ul>
+          <span>Pontuação Média dos jogadores:</span>
+           <span id="mediaPontuacaoJogadorComplete">0</span>
         </div>
         <div class="kpi6">
           <span>Top 3 Pontuadores:</span>
-          <ul id="top3Pontuadores"></ul>
+          <ul id="top3PontuadoresComplete"></ul>
         </div>
       </div>
       <div class="card-grafico">
@@ -66,8 +66,8 @@
           <p>Pontuação dos Jogadores</p>
         </div>
         <div class="dados-grafico">
-          <canvas id="myChart2"></canvas>
           <canvas id="graficoJogadores"></canvas>
+          <canvas id="graficoJogadoresComplete"></canvas>
         </div>
       </div>
     </div>
@@ -120,21 +120,7 @@ function limparSessao() {
       })
       .catch(error => console.error('Erro ao buscar top 3 pontuadores:', error));
 
-    // Plotar gráfico de desempenho geral
-    fetch('/grafico/buscarPontuacao')
-      .then(response => response.json())
-      .then(data => {
-        const chartData = {
-          labels: ['Quiz'],
-          datasets: [
-            { label: 'Turista', data: [data[0]?.Ruim || 0], backgroundColor: '#4D5359' },
-            { label: 'Ok', data: [data[0]?.Ok || 0], backgroundColor: '#C9CEBD' },
-            { label: 'Djafã', data: [data[0]?.Excelente || 0], backgroundColor: '#50080b' },
-          ],
-        };
-        new Chart(document.getElementById('myChart2'), { type: 'bar', data: chartData });
-      })
-      .catch(error => console.error('Erro ao buscar dados para gráfico:', error));
+    
 
     // Plotar gráfico de pontuação dos jogadores
     fetch('/grafico/buscarJogadoresPontuacoes')
@@ -148,6 +134,64 @@ function limparSessao() {
           datasets: [{ label: 'Pontuação dos jogadores', data: pontuacoes, backgroundColor: '#50080b' }],
         };
         new Chart(document.getElementById('graficoJogadores'), { type: 'bar', data: chartData });
+      })
+      .catch(error => console.error('Erro ao buscar pontuação dos jogadores:', error));
+
+
+
+      // parte 2
+
+  const pontuacaoComplete = sessionStorage.getItem('PontosComplete');
+  if (pontuacaoComplete == null) {
+    document.getElementById('ultimaPontuacaoComplete').innerHTML = '0';
+  } else {
+    document.getElementById('ultimaPontuacaoComplete').innerHTML = pontuacaoComplete;
+  }
+
+
+
+    // Obter média de pontuação dos jogadores
+    fetch('/complete/listarPontosComplete')
+      .then(response => response.json())
+      .then(data => {
+        const media = data[0]?.['avg(pontos)'] || 0;
+        document.getElementById('mediaPontuacaoJogadorComplete').innerText = parseFloat(media).toFixed(2);
+      })
+      .catch(error => console.error('Erro ao buscar média de pontuação:', error));
+
+    // Buscar top 3 pontuadores
+    fetch('/grafico/buscarMelhoresPontuadoresComplete')
+      .then(response => {
+        if(!response.ok){
+            throw new Error ('erro')
+        }
+        return response.json()
+      })
+      .then(data => {
+        const top3List = document.getElementById('top3PontuadoresComplete');
+        top3List.innerHTML = '';
+
+        data.slice(0, 3).forEach((player, index) => {
+          const listItem = document.createElement('li');
+          const medalha = ['🥇', '🥈', '🥉'][index] || '';
+          listItem.innerHTML = `${medalha} ${player.nome_jogador}: ${player.pontos} pontos`;
+          top3List.appendChild(listItem);
+        });
+      })
+      .catch(error => console.error('Erro ao buscar top 3 pontuadores:', error));
+
+    // Plotar gráfico de pontuação dos jogadores
+    fetch('/grafico/buscarJogadoresPontuacoesComplete')
+      .then(response => response.json())
+      .then(data => {
+        const jogadores = data.map(item => item.nome_jogador);
+        const pontuacoes = data.map(item => item.pontos);
+
+        const chartData = {
+          labels: jogadores,
+          datasets: [{ label: 'Pontuação dos jogadores', data: pontuacoes, backgroundColor: '#50080b' }],
+        };
+        new Chart(document.getElementById('graficoJogadoresComplete'), { type: 'bar', data: chartData });
       })
       .catch(error => console.error('Erro ao buscar pontuação dos jogadores:', error));
   </script>

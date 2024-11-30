@@ -44,7 +44,7 @@ function buscarMelhoresPontuadores(req, res) {
 
 
 function buscarPontuacaoComplete(req, res) {
-    graficoModel.buscarPontuacao().then(function (resultado) {
+    graficoModel.buscarPontuacaoComplete().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

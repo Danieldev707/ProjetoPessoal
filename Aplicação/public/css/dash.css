@@ -148,7 +148,7 @@ body {
 
 
 
-.kpi1 span:first-child, .kpi2 span:first-child, .kpi3 span:first-child, .kpi4 span:first-child {
+.kpi1 span:first-child, .kpi2 span:first-child, .kpi3 span:first-child, .kpi4 span:first-child, .kpi5 span:first-child, .kpi6 span:first-child {
   font-weight: bold;
 }
 
@@ -170,6 +170,17 @@ body {
   font-size: 20px;
   margin-bottom: 20px;
 }
+
+.titulo-grafico-secundario p {
+  font-size: 18px; /* Um tamanho ligeiramente menor para diferenciar */
+  margin-top: 20px; /* Adiciona um espaço acima */
+  margin-bottom: 10px; /* Controla o espaço abaixo */
+  color: #ccc; /* Cor diferente para destaque */
+  font-style: italic; /* Adiciona um estilo diferente */
+}
+
+
+
 
 .dados-grafico {
   display: flex; 
@@ -196,9 +207,9 @@ body {
 }
 
 canvas {
-  width: 100% !important; /* Adapta à largura do contêiner pai */
-  max-width: 500px; /* Limita a largura máxima do canvas */
-  height: 310px !important; /* Altura fixa */
+  width: 100% !important; 
+  max-width: 500px; 
+  height: 310px !important; 
   background-color: #fff;
   border-radius: 5px;
   padding: 22px;
