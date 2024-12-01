@@ -48,6 +48,11 @@
           <span>Top 3 Pontuadores:</span>
           <ul id="top3Pontuadores"></ul>
         </div>
+      </div>
+        <div class="kpi-grafico">
+          <div class="titulo-grafico">
+            <p>Informações Gerais do Complete a Música</p>
+          </div>
         <div class="kpi4">
           <span>Sua Última Pontuação:</span>
           <span><span id="ultimaPontuacaoComplete">0</span> de 10 pontos</span>
@@ -61,17 +66,25 @@
           <ul id="top3PontuadoresComplete"></ul>
         </div>
       </div>
-      <div class="card-grafico">
-        <div class="titulo-grafico">
-          <p>Pontuação dos Jogadores</p>
-        </div>
-        <div class="dados-grafico">
+
+      <div class="area-grafica">
+        <div class="card-grafico">
+          <div class="titulo-grafico">
+            <p>Pontuação dos Jogadores QUIZ </p>
+          </div>
           <canvas id="graficoJogadores"></canvas>
+        </div>
+
+        <div class="dados-grafico"> 
+          
+          <div class="titulo-grafico">
+            <p>Pontuação dos Jogadores Complete a Música</p>
+          </div>
           <canvas id="graficoJogadoresComplete"></canvas>
         </div>
       </div>
+      </div>
     </div>
-  </div>
 
   <script>
 function limparSessao() {

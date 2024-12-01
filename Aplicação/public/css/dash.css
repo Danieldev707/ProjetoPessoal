@@ -122,11 +122,38 @@ body {
   justify-content: space-between;
 }
 
+.area-grafica{
+  width: 78vw;
+  height: 50vh;
+  display: flex;
+}
+
+.card-grafico {
+  width: 50%;
+  height: 90%;
+}
+
+.dados-grafico .titulo-grafico {
+  width: 90%;
+  height: 10%;
+}
+
+.card-grafico .titulo-grafico {
+  width: 90%;
+  height: 10%;
+}
+
 .kpi-grafico {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
   flex-wrap: wrap; 
+}
+
+/* Voce faz a alteração que você quiser da área do título */
+.titulo-grafico {
+  height: 60px;
+  width: 100%;
 }
 
 .kpi1, .kpi2, .kpi3, .kpi4, .kpi5, .kpi6 {
@@ -146,6 +173,10 @@ body {
   color: black;
 }
 
+.kpi6 li {
+  text-decoration: none;
+  list-style: none;
+}
 
 
 .kpi1 span:first-child, .kpi2 span:first-child, .kpi3 span:first-child, .kpi4 span:first-child, .kpi5 span:first-child, .kpi6 span:first-child {
@@ -162,9 +193,12 @@ body {
   margin-bottom: 5px; 
 }
 
-.card-grafico {
-  margin-bottom: 30px;
+#top3PontuadoresComplete {
+  margin: 0;
+  padding: 0;
 }
+
+
 
 .titulo-grafico p {
   font-size: 20px;
@@ -172,11 +206,11 @@ body {
 }
 
 .titulo-grafico-secundario p {
-  font-size: 18px; /* Um tamanho ligeiramente menor para diferenciar */
-  margin-top: 20px; /* Adiciona um espaço acima */
-  margin-bottom: 10px; /* Controla o espaço abaixo */
-  color: #ccc; /* Cor diferente para destaque */
-  font-style: italic; /* Adiciona um estilo diferente */
+  font-size: 18px; 
+  margin-top: 20px; 
+  margin-bottom: 10px; 
+  color: #ccc; 
+  font-style: italic;
 }
 
 
@@ -186,6 +220,8 @@ body {
   display: flex; 
   justify-content: space-between; 
   flex-wrap: wrap; 
+  width: 50%;
+  height: 90%;
   gap: 20px; 
 }
 
