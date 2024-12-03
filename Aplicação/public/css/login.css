@@ -24,6 +24,7 @@ a img{
   padding: 30px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: #000000b1;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
