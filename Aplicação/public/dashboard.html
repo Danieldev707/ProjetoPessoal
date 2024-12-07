@@ -30,7 +30,7 @@
   <div class="menu-bg" id="menu-bg"></div>
 
   <div class="dash">
-      <h1> Olá Djafã</h1>
+      <h1> Olá Djafã <div id="divNomeUsuario"></div></h1>
     <div class="tela-grafico">
       <div class="titulo-grafico">
         <p>Informações Gerais do QUIZ</p>
@@ -87,6 +87,24 @@
     </div>
 
   <script>
+
+function exibirNome() {
+
+    const nomeUsuario = sessionStorage.getItem("NOME_USUARIO");
+    
+
+    const divNomeUsuario = document.getElementById("nomeUsuario");
+
+    if (nomeUsuario) {
+        divNomeUsuario.innerHTML = nomeUsuario;
+    } else {
+        divNomeUsuario.innerHTML = "Nenhum usuário encontrado.";
+    }
+
+    console.log(sessionStorage.getItem("NOME_USUARIO"));
+}
+
+
 function limparSessao() {
     sessionStorage.clear();
     window.location = "../login.html";
@@ -135,7 +153,7 @@ function limparSessao() {
 
     
 
-    // Plotar gráfico de pontuação dos jogadores
+    // gráfico de pontuação dos jogadores
     fetch('/grafico/buscarJogadoresPontuacoes')
       .then(response => response.json())
       .then(data => {
@@ -193,7 +211,7 @@ function limparSessao() {
       })
       .catch(error => console.error('Erro ao buscar top 3 pontuadores:', error));
 
-    // Plotar gráfico de pontuação dos jogadores
+    // gráfico de pontuação dos jogadores
     fetch('/grafico/buscarJogadoresPontuacoesComplete')
       .then(response => response.json())
       .then(data => {
